@@ -1,0 +1,49 @@
+---
+# templates/ — configuration
+name: templates
+description: >
+  Reusable document templates for architectural and operational artifacts.
+  Each sub-directory contains a YAML config and a Markdown template file.
+
+templates:
+  - id: adr
+    name: Architecture Decision Record
+    path: adr/
+    file: template.md
+    description: Captures a significant architectural decision with its context and consequences.
+    tags: [architecture, decision, record]
+
+  - id: rfc
+    name: Request for Comments
+    path: rfc/
+    file: template.md
+    description: Proposes a change or new feature for community/team review.
+    tags: [proposal, review, change]
+
+  - id: system-context
+    name: System Context
+    path: system-context/
+    file: template.md
+    description: High-level description of a system and its external interfaces.
+    tags: [architecture, context, diagram]
+
+  - id: component-design
+    name: Component Design
+    path: component-design/
+    file: template.md
+    description: Detailed design document for a single software component.
+    tags: [design, component, detail]
+
+  - id: runbook
+    name: Operational Runbook
+    path: runbook/
+    file: template.md
+    description: Step-by-step operational procedures for a service or system.
+    tags: [operations, runbook, procedure]
+
+  - id: post-mortem
+    name: Incident Post-Mortem
+    path: post-mortem/
+    file: template.md
+    description: Root-cause analysis and action items following an incident.
+    tags: [incident, retrospective, improvement]

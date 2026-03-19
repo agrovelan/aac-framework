@@ -1,0 +1,15 @@
+---
+# RFC template configuration
+id: rfc
+name: Request for Comments
+version: "1.0.0"
+file: template.md
+status_values: [draft, open, accepted, rejected, withdrawn]
+required_fields:
+  - title
+  - date
+  - author
+  - status
+  - summary
+  - motivation
+  - detailed_design

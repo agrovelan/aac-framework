@@ -1,0 +1,14 @@
+---
+# ADR template configuration
+id: adr
+name: Architecture Decision Record
+version: "1.0.0"
+file: template.md
+status_values: [proposed, accepted, deprecated, superseded]
+required_fields:
+  - title
+  - date
+  - status
+  - context
+  - decision
+  - consequences

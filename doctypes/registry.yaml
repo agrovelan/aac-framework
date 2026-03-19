@@ -1,0 +1,113 @@
+---
+# Document-type registry
+schema_version: "1.0.0"
+description: >
+  Registry of all document types recognised by the AAC framework.
+  Each entry defines the type's identifier, display name, template,
+  naming pattern, and required metadata fields.
+
+doctypes:
+  - id: adr
+    name: Architecture Decision Record
+    abbreviation: ADR
+    template: templates/adr/template.md
+    naming_pattern: "adr-{NNNN}-{slug}.md"
+    naming_example: "adr-0001-use-postgresql-as-primary-database.md"
+    labels:
+      category: architecture
+      status: [proposed, accepted, deprecated, superseded]
+    required_metadata:
+      - title
+      - date
+      - status
+      - deciders
+    description: >
+      Captures a significant architectural decision, its context,
+      and the consequences of the decision.
+
+  - id: rfc
+    name: Request for Comments
+    abbreviation: RFC
+    template: templates/rfc/template.md
+    naming_pattern: "rfc-{NNNN}-{slug}.md"
+    naming_example: "rfc-0001-migrate-to-event-driven-architecture.md"
+    labels:
+      category: proposal
+      status: [draft, open, accepted, rejected, withdrawn]
+    required_metadata:
+      - title
+      - date
+      - author
+      - status
+    description: >
+      Proposes a change or new feature and solicits feedback from the
+      wider team before implementation begins.
+
+  - id: system-context
+    name: System Context
+    abbreviation: SC
+    template: templates/system-context/template.md
+    naming_pattern: "system-context-{slug}.md"
+    naming_example: "system-context-payment-service.md"
+    labels:
+      category: architecture
+      status: [draft, reviewed, approved]
+    required_metadata:
+      - system_name
+      - owner
+      - date
+    description: >
+      High-level description of a system and its interactions with
+      external actors and systems.
+
+  - id: component-design
+    name: Component Design
+    abbreviation: CD
+    template: templates/component-design/template.md
+    naming_pattern: "component-design-{slug}.md"
+    naming_example: "component-design-order-processor.md"
+    labels:
+      category: design
+      status: [draft, reviewed, approved]
+    required_metadata:
+      - component_name
+      - owner
+      - date
+      - status
+    description: >
+      Detailed design document for a single software component,
+      including its interfaces, dependencies, and non-functional requirements.
+
+  - id: runbook
+    name: Operational Runbook
+    abbreviation: RB
+    template: templates/runbook/template.md
+    naming_pattern: "runbook-{slug}.md"
+    naming_example: "runbook-restart-api-gateway.md"
+    labels:
+      category: operations
+      status: [draft, reviewed, approved]
+    required_metadata:
+      - service_name
+      - owner
+      - last_reviewed
+    description: >
+      Step-by-step operational procedure for a service or system,
+      including verification and rollback steps.
+
+  - id: post-mortem
+    name: Incident Post-Mortem
+    abbreviation: PM
+    template: templates/post-mortem/template.md
+    naming_pattern: "post-mortem-{YYYY-MM-DD}-{slug}.md"
+    naming_example: "post-mortem-2024-03-15-database-outage.md"
+    labels:
+      category: incident
+      status: [draft, reviewed, closed]
+    required_metadata:
+      - incident_id
+      - date
+      - severity
+      - lead
+    description: >
+      Root-cause analysis and action items following a production incident.

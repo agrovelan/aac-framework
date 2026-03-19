@@ -1,0 +1,69 @@
+---
+# personas/ — configuration
+name: personas
+description: >
+  Role definitions for contributors to the AAC framework and the projects
+  that adopt it. Each persona describes responsibilities, decision-making
+  authority, and the artifacts they are expected to produce or review.
+
+personas:
+  - id: architect
+    name: Architect
+    aliases: [solution-architect, enterprise-architect]
+    responsibilities:
+      - Define and maintain system context documents.
+      - Author and approve Architecture Decision Records (ADRs).
+      - Review component design documents.
+      - Ensure alignment with enterprise architecture standards.
+    produces: [adr, system-context, component-design]
+    approves: [adr, rfc, system-context]
+
+  - id: developer
+    name: Developer
+    aliases: [software-engineer, engineer]
+    responsibilities:
+      - Implement designs agreed in ADRs and component designs.
+      - Author RFCs for significant technical changes.
+      - Maintain runbooks for services they own.
+    produces: [rfc, component-design, runbook]
+    approves: [rfc]
+
+  - id: product-manager
+    name: Product Manager
+    aliases: [pm, po, product-owner]
+    responsibilities:
+      - Define product requirements and acceptance criteria.
+      - Prioritise work and manage the backlog.
+      - Review RFCs for product impact.
+    produces: []
+    approves: [rfc]
+
+  - id: tech-lead
+    name: Tech Lead
+    aliases: [technical-lead, lead-engineer]
+    responsibilities:
+      - Coordinate technical direction within a team.
+      - Facilitate ADR and RFC review cycles.
+      - Ensure naming conventions and label taxonomy are followed.
+    produces: [adr, rfc]
+    approves: [adr, rfc, component-design, runbook]
+
+  - id: devops-engineer
+    name: DevOps Engineer
+    aliases: [sre, platform-engineer, infrastructure-engineer]
+    responsibilities:
+      - Author and maintain runbooks and post-mortems.
+      - Define and enforce naming conventions for infrastructure.
+      - Manage label taxonomy for pipeline and deployment artifacts.
+    produces: [runbook, post-mortem]
+    approves: [runbook, post-mortem]
+
+  - id: security-engineer
+    name: Security Engineer
+    aliases: [appsec, security-architect]
+    responsibilities:
+      - Review ADRs and component designs for security implications.
+      - Define security-related labels and naming conventions.
+      - Lead post-mortem reviews for security incidents.
+    produces: [adr]
+    approves: [adr, component-design, post-mortem]
