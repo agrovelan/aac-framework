@@ -1,0 +1,12 @@
+---
+# Runbook template configuration
+id: runbook
+name: Operational Runbook
+version: "1.0.0"
+file: template.md
+required_fields:
+  - service_name
+  - owner
+  - description
+  - prerequisites
+  - procedures

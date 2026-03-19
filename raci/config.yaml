@@ -1,0 +1,84 @@
+---
+# raci/ — configuration
+name: raci
+description: >
+  RACI (Responsible, Accountable, Consulted, Informed) matrices for the
+  key activities within the AAC framework lifecycle.
+
+# RACI key
+raci_values:
+  R: Responsible    # Does the work
+  A: Accountable    # Owns the outcome; the one who is answerable
+  C: Consulted      # Provides input before work is done; two-way communication
+  I: Informed       # Notified of progress/outcome; one-way communication
+
+activities:
+  - id: create-adr
+    name: Create Architecture Decision Record
+    personas:
+      architect: A
+      tech-lead: R
+      developer: C
+      security-engineer: C
+      product-manager: I
+      devops-engineer: I
+
+  - id: review-adr
+    name: Review and approve ADR
+    personas:
+      architect: A
+      tech-lead: R
+      developer: C
+      security-engineer: C
+      product-manager: C
+      devops-engineer: I
+
+  - id: create-rfc
+    name: Create Request for Comments
+    personas:
+      developer: R
+      tech-lead: A
+      architect: C
+      product-manager: C
+      security-engineer: C
+      devops-engineer: I
+
+  - id: create-system-context
+    name: Create System Context document
+    personas:
+      architect: R
+      tech-lead: A
+      developer: C
+      product-manager: C
+      devops-engineer: C
+      security-engineer: C
+
+  - id: create-component-design
+    name: Create Component Design document
+    personas:
+      developer: R
+      architect: A
+      tech-lead: C
+      security-engineer: C
+      devops-engineer: I
+      product-manager: I
+
+  - id: create-runbook
+    name: Create Operational Runbook
+    personas:
+      devops-engineer: R
+      tech-lead: A
+      developer: C
+      architect: I
+      security-engineer: I
+      product-manager: I
+
+  - id: create-post-mortem
+    name: Create Incident Post-Mortem
+    personas:
+      devops-engineer: R
+      tech-lead: A
+      developer: C
+      architect: C
+      security-engineer: C
+      product-manager: I

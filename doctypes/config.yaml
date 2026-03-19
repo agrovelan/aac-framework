@@ -1,0 +1,9 @@
+---
+# doctypes/ — configuration
+name: doctypes
+description: >
+  Configuration for the document-type registry.
+  The registry defines all recognised document types in the framework.
+
+registry_file: registry.yaml
+schema_version: "1.0.0"

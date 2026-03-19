@@ -1,0 +1,90 @@
+---
+# Naming-convention rules
+schema_version: "1.0.0"
+description: >
+  Rules for naming files, directories, Git branches, labels, and YAML keys
+  within the AAC framework. All rules use the format:
+    pattern   — a regular expression the name must match
+    example   — one or more valid examples
+    rationale — why this rule exists
+
+rules:
+  files:
+    markdown:
+      description: Markdown document files.
+      pattern: "^[a-z0-9]+(-[a-z0-9]+)*\\.md$"
+      examples:
+        - adr-0001-use-postgresql.md
+        - post-mortem-2024-03-15-database-outage.md
+        - runbook-restart-api-gateway.md
+      rationale: >
+        Lowercase kebab-case is URL-safe, portable across operating systems,
+        and easy to read in terminal output.
+
+    yaml:
+      description: YAML configuration files.
+      pattern: "^[a-z0-9]+(-[a-z0-9]+)*\\.ya?ml$"
+      examples:
+        - config.yaml
+        - taxonomy.yaml
+        - registry.yaml
+      rationale: >
+        Consistent lowercase kebab-case for YAML files. Prefer `.yaml`
+        over `.yml` for clarity.
+
+  directories:
+    description: Directory (folder) names.
+    pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+    examples:
+      - templates
+      - system-context
+      - post-mortem
+    rationale: >
+      Lowercase kebab-case keeps paths consistent with file names and avoids
+      case-sensitivity issues across Linux and macOS.
+
+  git_branches:
+    description: Git branch names for framework contributions.
+    pattern: "^(feat|fix|chore|docs|refactor|ci)/[a-z0-9]+(-[a-z0-9]+)*$"
+    examples:
+      - feat/add-runbook-template
+      - fix/adr-required-fields
+      - docs/update-raci-matrix
+    rationale: >
+      Conventional Commits-style prefixes make the purpose of a branch
+      immediately clear and support automated changelog generation.
+
+  yaml_keys:
+    description: Keys within YAML configuration files.
+    pattern: "^[a-z][a-z0-9]*(_[a-z0-9]+)*$"
+    examples:
+      - schema_version
+      - naming_pattern
+      - required_metadata
+    rationale: >
+      Snake_case for YAML keys is idiomatic in most tooling and avoids
+      ambiguity with hyphens in contexts that don't quote keys.
+
+  document_ids:
+    description: >
+      Identifier values used in `id` fields across YAML config files.
+    pattern: "^[a-z][a-z0-9]*(-[a-z0-9]+)*$"
+    examples:
+      - adr
+      - system-context
+      - tech-lead
+    rationale: >
+      Lowercase kebab-case IDs are human-readable, URL-safe, and consistent
+      with directory naming.
+
+  sequence_numbers:
+    description: >
+      Zero-padded sequence numbers used in ADR and RFC file names.
+    pattern: "^\\d{4}$"
+    examples:
+      - "0001"
+      - "0042"
+      - "1000"
+    rationale: >
+      Four-digit zero-padding supports natural alphabetical sorting for
+      up to 9,999 documents per type.
