@@ -1,0 +1,80 @@
+---
+# RACI matrix for managing a production incident through to resolution.
+# R = Responsible | A = Accountable | C = Consulted | I = Informed
+activity: incident-response
+description: >
+  Activities from first alert or report of a production incident through to
+  full resolution, post-mortem publication, and action-item completion.
+
+roles:
+  - solution-architect
+  - technical-lead
+  - software-engineer
+  - devops-engineer
+  - security-engineer
+  - product-manager
+
+matrix:
+  - activity: Detect and triage the incident
+    solution-architect: I
+    technical-lead: C
+    software-engineer: C
+    devops-engineer: A
+    security-engineer: I
+    product-manager: I
+
+  - activity: Declare incident severity (SEV-1/2/3)
+    solution-architect: C
+    technical-lead: A
+    software-engineer: I
+    devops-engineer: R
+    security-engineer: C
+    product-manager: I
+
+  - activity: Investigate root cause
+    solution-architect: C
+    technical-lead: A
+    software-engineer: R
+    devops-engineer: R
+    security-engineer: C
+    product-manager: I
+
+  - activity: Apply mitigation or fix
+    solution-architect: I
+    technical-lead: A
+    software-engineer: R
+    devops-engineer: R
+    security-engineer: C
+    product-manager: I
+
+  - activity: Communicate status to stakeholders
+    solution-architect: I
+    technical-lead: R
+    software-engineer: I
+    devops-engineer: C
+    security-engineer: I
+    product-manager: A
+
+  - activity: Conduct blameless post-mortem
+    solution-architect: C
+    technical-lead: A
+    software-engineer: R
+    devops-engineer: R
+    security-engineer: C
+    product-manager: I
+
+  - activity: Publish Post-Mortem document
+    solution-architect: I
+    technical-lead: A
+    software-engineer: R
+    devops-engineer: C
+    security-engineer: I
+    product-manager: I
+
+  - activity: Track and complete action items
+    solution-architect: I
+    technical-lead: A
+    software-engineer: R
+    devops-engineer: R
+    security-engineer: C
+    product-manager: C

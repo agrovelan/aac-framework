@@ -1,0 +1,46 @@
+id: software-engineer
+name: Software Engineer
+aliases:
+  - Developer
+  - Engineer
+  - SWE
+
+description: >
+  Designs, builds, tests, and operates software components. Collaborates closely
+  with architects and product managers to translate requirements into working
+  software. Accountable for the quality, security, and operability of the code
+  they produce.
+
+responsibilities:
+  - Implement features and bug fixes following architectural guidelines.
+  - Author Component Design documents for features or services they own.
+  - Write and maintain Runbooks for services they operate.
+  - Participate in incident response and contribute to Post-Mortem write-ups.
+  - Raise RFCs for significant implementation changes that affect shared systems.
+  - Follow naming conventions and apply correct labels to all documents.
+
+skills:
+  - Software development in one or more languages
+  - Unit, integration, and contract testing
+  - CI/CD pipelines and containerisation
+  - Basic security hygiene (OWASP top 10, secrets management)
+  - Debugging and observability tooling
+
+typical_docs_authored:
+  - component-design
+  - runbook
+  - post-mortem
+  - rfc
+
+typical_docs_reviewed:
+  - adr
+  - rfc
+  - component-design
+  - runbook
+
+raci_roles:
+  new_system_design: Responsible
+  technology_selection: Consulted
+  security_review: Responsible
+  deployment_process: Responsible
+  incident_response: Responsible
