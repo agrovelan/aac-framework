@@ -1,0 +1,96 @@
+---
+# RACI matrix for designing and introducing a new system or service.
+# R = Responsible | A = Accountable | C = Consulted | I = Informed
+activity: new-system-design
+description: >
+  Activities involved in designing and delivering a brand-new system or service,
+  from initial requirements through to production deployment and handover.
+
+roles:
+  - solution-architect
+  - technical-lead
+  - software-engineer
+  - devops-engineer
+  - security-engineer
+  - product-manager
+
+matrix:
+  - activity: Define business requirements
+    solution-architect: C
+    technical-lead: C
+    software-engineer: I
+    devops-engineer: I
+    security-engineer: I
+    product-manager: A
+
+  - activity: Produce System Context document
+    solution-architect: A
+    technical-lead: R
+    software-engineer: C
+    devops-engineer: C
+    security-engineer: C
+    product-manager: I
+
+  - activity: Conduct threat modelling
+    solution-architect: C
+    technical-lead: C
+    software-engineer: R
+    devops-engineer: C
+    security-engineer: A
+    product-manager: I
+
+  - activity: Author Architecture Decision Records (ADRs)
+    solution-architect: A
+    technical-lead: R
+    software-engineer: C
+    devops-engineer: C
+    security-engineer: C
+    product-manager: I
+
+  - activity: Write Component Design documents
+    solution-architect: C
+    technical-lead: A
+    software-engineer: R
+    devops-engineer: C
+    security-engineer: C
+    product-manager: I
+
+  - activity: Design CI/CD pipeline and infrastructure
+    solution-architect: C
+    technical-lead: C
+    software-engineer: C
+    devops-engineer: A
+    security-engineer: C
+    product-manager: I
+
+  - activity: Implement and unit-test components
+    solution-architect: I
+    technical-lead: A
+    software-engineer: R
+    devops-engineer: I
+    security-engineer: I
+    product-manager: I
+
+  - activity: Conduct security review
+    solution-architect: C
+    technical-lead: C
+    software-engineer: R
+    devops-engineer: C
+    security-engineer: A
+    product-manager: I
+
+  - activity: Deploy to production
+    solution-architect: I
+    technical-lead: A
+    software-engineer: C
+    devops-engineer: R
+    security-engineer: C
+    product-manager: I
+
+  - activity: Write and publish Runbooks
+    solution-architect: I
+    technical-lead: A
+    software-engineer: C
+    devops-engineer: R
+    security-engineer: I
+    product-manager: I

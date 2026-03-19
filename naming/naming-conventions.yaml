@@ -1,0 +1,138 @@
+---
+# Naming conventions for the Architecture As Code (AaC) framework.
+# These rules apply to files, directories, components, and other identifiers
+# produced or consumed by the framework.
+
+version: "1.0"
+
+general:
+  description: >
+    All names MUST use lowercase letters, digits, and hyphens only.
+    Spaces and underscores are not permitted. Names should be descriptive
+    and as short as clarity allows.
+  rules:
+    - id: gen-1
+      rule: "Use lowercase letters, digits, and hyphens only."
+      example_valid: "user-authentication-service"
+      example_invalid: "UserAuthenticationService, user_authentication_service"
+
+    - id: gen-2
+      rule: "Do not start or end a name with a hyphen."
+      example_valid: "api-gateway"
+      example_invalid: "-api-gateway, api-gateway-"
+
+    - id: gen-3
+      rule: "Prefer full words over abbreviations unless the abbreviation is widely understood (e.g. api, ui, id, adr, rfc)."
+      example_valid: "authentication-service, api-gateway"
+      example_invalid: "auth-svc, apigw"
+
+files:
+  description: >
+    Rules for naming documentation files within the AaC framework.
+
+  patterns:
+    adr:
+      pattern: "adr-{####}-{slug}.md"
+      description: "Architecture Decision Records are numbered sequentially, zero-padded to 4 digits."
+      examples:
+        - "adr-0001-use-postgresql-for-primary-datastore.md"
+        - "adr-0042-adopt-opentelemetry-for-tracing.md"
+
+    rfc:
+      pattern: "rfc-{####}-{slug}.md"
+      description: "Requests for Comments are numbered sequentially, zero-padded to 4 digits."
+      examples:
+        - "rfc-0001-introduce-event-sourcing.md"
+        - "rfc-0015-migrate-to-kubernetes.md"
+
+    system-context:
+      pattern: "{system-slug}-system-context.md"
+      description: "System Context documents are named after the system they describe."
+      examples:
+        - "payments-system-context.md"
+        - "identity-platform-system-context.md"
+
+    component-design:
+      pattern: "{component-slug}-design.md"
+      description: "Component Design documents are named after the component they describe."
+      examples:
+        - "order-service-design.md"
+        - "notification-worker-design.md"
+
+    runbook:
+      pattern: "{service-slug}-runbook-{operation-slug}.md"
+      description: "Runbooks identify both the service and the specific operation they cover."
+      examples:
+        - "payments-api-runbook-restart-consumer.md"
+        - "database-runbook-point-in-time-restore.md"
+
+    post-mortem:
+      pattern: "{YYYY-MM-DD}-post-mortem-{incident-slug}.md"
+      description: "Post-Mortems are prefixed with the incident date (ISO 8601)."
+      examples:
+        - "2024-03-15-post-mortem-database-connection-exhaustion.md"
+        - "2024-07-01-post-mortem-payment-gateway-timeout.md"
+
+    raci:
+      pattern: "{activity-slug}.yaml"
+      description: "RACI matrices are named after the activity they cover."
+      examples:
+        - "new-system-design.yaml"
+        - "technology-selection.yaml"
+
+directories:
+  description: >
+    Top-level framework directories follow the same lowercase-hyphen convention.
+  standard_directories:
+    - name: templates
+      purpose: "Document templates."
+    - name: personas
+      purpose: "Persona definitions."
+    - name: raci
+      purpose: "RACI matrices."
+    - name: doctypes
+      purpose: "Document-type registry."
+    - name: naming
+      purpose: "Naming conventions (this directory)."
+    - name: labels
+      purpose: "Label taxonomy."
+    - name: docs
+      purpose: "Project-specific architecture documents (created by consumers)."
+
+components:
+  description: >
+    Rules for naming software components, services, and repositories.
+  rules:
+    - id: comp-1
+      rule: "Component names MUST be lowercase, hyphen-separated noun phrases."
+      example_valid: "order-service, notification-worker, api-gateway"
+      example_invalid: "OrderService, notification_worker, APIGateway"
+
+    - id: comp-2
+      rule: "Service names SHOULD include a functional noun suffix: -service, -worker, -gateway, -api, -ui, -cli."
+      example_valid: "checkout-service, email-worker, admin-api"
+      example_invalid: "checkout, emailer, admin"
+
+    - id: comp-3
+      rule: "Repository names SHOULD match the primary component they contain."
+      example_valid: "order-service (repository for the Order Service)"
+      example_invalid: "orders, OrderService, svc-orders"
+
+identifiers:
+  description: >
+    Rules for machine-readable identifiers used in YAML and metadata.
+  rules:
+    - id: id-1
+      rule: "IDs MUST be lowercase, hyphen-separated, and globally unique within their namespace."
+      example_valid: "solution-architect, adr-0001"
+      example_invalid: "SolutionArchitect, adr_0001"
+
+    - id: id-2
+      rule: "DocType IDs MUST match the id field in doctypes.yaml."
+      example_valid: "adr, rfc, system-context"
+      example_invalid: "ADR, Request-For-Comments"
+
+    - id: id-3
+      rule: "Label keys MUST follow the pattern {category}:{value} using the taxonomy in labels.yaml."
+      example_valid: "doctype:adr, status:draft, priority:high"
+      example_invalid: "ADR, draft, high"
