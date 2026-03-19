@@ -1,0 +1,73 @@
+---
+# RACI matrix for evaluating and selecting a significant new technology.
+# R = Responsible | A = Accountable | C = Consulted | I = Informed
+activity: technology-selection
+description: >
+  Activities involved in evaluating, selecting, and adopting a new technology
+  (programming language, framework, database, cloud service, etc.) that will
+  have lasting impact on the architecture or engineering teams.
+
+roles:
+  - solution-architect
+  - technical-lead
+  - software-engineer
+  - devops-engineer
+  - security-engineer
+  - product-manager
+
+matrix:
+  - activity: Define evaluation criteria
+    solution-architect: A
+    technical-lead: R
+    software-engineer: C
+    devops-engineer: C
+    security-engineer: C
+    product-manager: C
+
+  - activity: Identify candidate technologies
+    solution-architect: R
+    technical-lead: R
+    software-engineer: C
+    devops-engineer: C
+    security-engineer: C
+    product-manager: I
+
+  - activity: Build proof-of-concept (PoC)
+    solution-architect: C
+    technical-lead: A
+    software-engineer: R
+    devops-engineer: C
+    security-engineer: I
+    product-manager: I
+
+  - activity: Conduct security assessment of candidates
+    solution-architect: C
+    technical-lead: C
+    software-engineer: C
+    devops-engineer: C
+    security-engineer: A
+    product-manager: I
+
+  - activity: Assess operational / platform impact
+    solution-architect: C
+    technical-lead: C
+    software-engineer: I
+    devops-engineer: A
+    security-engineer: I
+    product-manager: I
+
+  - activity: Document decision in an ADR
+    solution-architect: A
+    technical-lead: R
+    software-engineer: C
+    devops-engineer: C
+    security-engineer: C
+    product-manager: I
+
+  - activity: Communicate decision and onboarding plan
+    solution-architect: R
+    technical-lead: C
+    software-engineer: I
+    devops-engineer: I
+    security-engineer: I
+    product-manager: A

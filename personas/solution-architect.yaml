@@ -1,0 +1,46 @@
+id: solution-architect
+name: Solution Architect
+aliases:
+  - Architect
+  - SA
+
+description: >
+  Owns the end-to-end technical vision for a product or domain. Defines and
+  governs architectural patterns, drives technology choices, and ensures
+  solutions are aligned with enterprise standards, quality attributes, and
+  long-term strategy.
+
+responsibilities:
+  - Produce and maintain System Context and Component Design documents.
+  - Author and approve Architecture Decision Records (ADRs).
+  - Define and enforce quality attribute targets (availability, latency, security).
+  - Review and approve RFCs that introduce significant architectural changes.
+  - Guide squads on architectural patterns and best practices.
+  - Represent architecture concerns in RACI processes for new systems and major changes.
+
+skills:
+  - System design and distributed systems patterns
+  - Cloud platforms (AWS / Azure / GCP)
+  - Security architecture and threat modelling
+  - Communication of complex technical concepts to non-technical stakeholders
+  - Trade-off analysis and decision facilitation
+
+typical_docs_authored:
+  - adr
+  - rfc
+  - system-context
+  - component-design
+
+typical_docs_reviewed:
+  - adr
+  - rfc
+  - system-context
+  - component-design
+  - runbook
+
+raci_roles:
+  new_system_design: Accountable
+  technology_selection: Accountable
+  security_review: Consulted
+  deployment_process: Consulted
+  incident_response: Consulted

@@ -1,0 +1,45 @@
+id: devops-engineer
+name: DevOps Engineer
+aliases:
+  - Platform Engineer
+  - SRE
+  - Site Reliability Engineer
+
+description: >
+  Owns the reliability, scalability, and operability of the platform. Designs
+  and maintains CI/CD pipelines, infrastructure as code, monitoring and alerting,
+  and incident response processes. Partners with engineering teams to embed
+  operational best practices into software delivery.
+
+responsibilities:
+  - Design and maintain infrastructure-as-code, CI/CD pipelines, and deployment tooling.
+  - Define and enforce operational standards (SLIs, SLOs, alerting, on-call).
+  - Author and maintain Runbooks for platform-level operations.
+  - Lead incident response for infrastructure and platform incidents.
+  - Contribute to Post-Mortem write-ups and drive follow-up action items.
+  - Review Component Design documents for operational readiness.
+
+skills:
+  - Infrastructure as Code (Terraform, Pulumi, CloudFormation)
+  - Kubernetes, container orchestration, and service mesh
+  - Observability tooling (Prometheus, Grafana, OpenTelemetry, Jaeger)
+  - CI/CD platforms (GitHub Actions, Jenkins, ArgoCD)
+  - Incident management and SRE practices
+
+typical_docs_authored:
+  - runbook
+  - post-mortem
+  - component-design
+
+typical_docs_reviewed:
+  - component-design
+  - adr
+  - rfc
+  - runbook
+
+raci_roles:
+  new_system_design: Consulted
+  technology_selection: Consulted
+  security_review: Consulted
+  deployment_process: Responsible
+  incident_response: Responsible

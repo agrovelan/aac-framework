@@ -1,0 +1,42 @@
+id: security-engineer
+name: Security Engineer
+aliases:
+  - AppSec Engineer
+  - Information Security Engineer
+
+description: >
+  Protects the organisation's systems, data, and users by embedding security
+  thinking throughout the software delivery lifecycle. Performs threat modelling,
+  security reviews, and vulnerability management, and provides guidance to
+  engineering teams on secure design and coding practices.
+
+responsibilities:
+  - Conduct threat modelling and security reviews for new systems and major changes.
+  - Define and maintain security standards and controls.
+  - Review ADRs and Component Design documents for security implications.
+  - Drive vulnerability remediation and track security action items.
+  - Participate in incident response for security-related incidents.
+  - Author or review the security sections of Post-Mortem documents.
+
+skills:
+  - Threat modelling (STRIDE, PASTA, Attack Trees)
+  - Application security (OWASP, SANS)
+  - Identity and access management (OAuth2, OIDC, RBAC)
+  - Secrets management and cryptography
+  - Penetration testing and vulnerability assessment
+  - Compliance frameworks (SOC 2, ISO 27001, GDPR)
+
+typical_docs_authored: []
+
+typical_docs_reviewed:
+  - adr
+  - rfc
+  - component-design
+  - post-mortem
+
+raci_roles:
+  new_system_design: Consulted
+  technology_selection: Consulted
+  security_review: Accountable
+  deployment_process: Informed
+  incident_response: Consulted

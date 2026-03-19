@@ -1,0 +1,161 @@
+---
+# Document type registry for the Architecture As Code (AaC) framework.
+# Each entry defines a recognised document type, its metadata, and ownership rules.
+
+doctypes:
+
+  - id: adr
+    name: Architecture Decision Record
+    description: >
+      Captures a significant architectural decision, the context in which it was
+      made, the decision itself, and its consequences.
+    template: templates/adr.md
+    naming_pattern: "adr-{number}-{slug}.md"
+    number_format: "####"   # zero-padded 4-digit integer, e.g. 0001
+    statuses:
+      - Proposed
+      - Accepted
+      - Deprecated
+      - Superseded
+    required_fields:
+      - date
+      - status
+      - deciders
+    reviewers:
+      - solution-architect
+      - technical-lead
+    labels:
+      required:
+        - doctype:adr
+      recommended:
+        - status:{status}
+
+  - id: rfc
+    name: Request for Comments
+    description: >
+      Proposes a significant design or process change and gathers structured
+      feedback before implementation begins.
+    template: templates/rfc.md
+    naming_pattern: "rfc-{number}-{slug}.md"
+    number_format: "####"
+    statuses:
+      - Draft
+      - Review
+      - Accepted
+      - Rejected
+      - Withdrawn
+    required_fields:
+      - date
+      - status
+      - author
+      - reviewers
+    reviewers:
+      - solution-architect
+      - technical-lead
+      - security-engineer
+    labels:
+      required:
+        - doctype:rfc
+      recommended:
+        - status:{status}
+
+  - id: system-context
+    name: System Context
+    description: >
+      Documents the high-level context of a system: its purpose, actors,
+      external dependencies, constraints, and quality attributes.
+    template: templates/system-context.md
+    naming_pattern: "{system-slug}-system-context.md"
+    statuses:
+      - Draft
+      - Review
+      - Approved
+      - Outdated
+    required_fields:
+      - date
+      - version
+      - author
+    reviewers:
+      - solution-architect
+    labels:
+      required:
+        - doctype:system-context
+      recommended:
+        - status:{status}
+
+  - id: component-design
+    name: Component Design
+    description: >
+      Details the design, interfaces, data model, security posture, and
+      operational characteristics of a single component or service.
+    template: templates/component-design.md
+    naming_pattern: "{component-slug}-design.md"
+    statuses:
+      - Draft
+      - Review
+      - Approved
+      - Outdated
+    required_fields:
+      - date
+      - version
+      - author
+      - owning_team
+    reviewers:
+      - technical-lead
+      - solution-architect
+    labels:
+      required:
+        - doctype:component-design
+      recommended:
+        - status:{status}
+
+  - id: runbook
+    name: Runbook
+    description: >
+      Provides step-by-step operational procedures for routine or critical tasks
+      performed by engineers on-call.
+    template: templates/runbook.md
+    naming_pattern: "{service-slug}-runbook-{operation-slug}.md"
+    statuses:
+      - Draft
+      - Active
+      - Deprecated
+    required_fields:
+      - date
+      - version
+      - author
+      - owning_team
+    reviewers:
+      - technical-lead
+      - devops-engineer
+    labels:
+      required:
+        - doctype:runbook
+      recommended:
+        - status:{status}
+
+  - id: post-mortem
+    name: Post-Mortem
+    description: >
+      Blameless incident review that captures the timeline, root cause,
+      contributing factors, and follow-up action items.
+    template: templates/post-mortem.md
+    naming_pattern: "{date}-post-mortem-{incident-slug}.md"
+    date_format: "YYYY-MM-DD"
+    statuses:
+      - Draft
+      - Review
+      - Published
+    required_fields:
+      - date
+      - severity
+      - lead
+      - participants
+    reviewers:
+      - technical-lead
+    labels:
+      required:
+        - doctype:post-mortem
+      recommended:
+        - severity:{severity}
+        - status:{status}
