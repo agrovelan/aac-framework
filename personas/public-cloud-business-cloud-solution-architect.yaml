@@ -1,0 +1,48 @@
+id: public-cloud-business-cloud-solution-architect
+name: Public Cloud Business Cloud Solution Architect
+aliases:
+  - Business Cloud Architect
+  - PCBCSA
+
+description: >
+  Bridges the gap between business strategy and public-cloud technology to
+  deliver commercially viable cloud solutions. Combines deep cloud architecture
+  knowledge with business acumen to translate organisational objectives into
+  scalable, cost-effective cloud designs. Acts as the primary liaison between
+  executive stakeholders, product owners, and engineering teams.
+
+responsibilities:
+  - Translate business requirements and OKRs into cloud solution architectures.
+  - Author business-aligned ADRs and System Context documents.
+  - Define total-cost-of-ownership models and cloud investment business cases.
+  - Review RFCs and component designs for business impact and commercial viability.
+  - Collaborate with Product Managers to align cloud capability roadmaps with product strategy.
+  - Ensure cloud solutions comply with data sovereignty, privacy, and regulatory requirements.
+  - Represent business cloud architecture in governance, risk, and compliance forums.
+
+skills:
+  - Cloud solution architecture on at least one major public cloud
+  - Business case development and TCO/ROI modelling (FinOps)
+  - Regulatory and compliance frameworks (GDPR, ISO 27001, SOC 2)
+  - Stakeholder management and executive communication
+  - Product-led cloud strategy and capability mapping
+  - Data architecture and SaaS integration patterns
+
+typical_docs_authored:
+  - platform-policy
+  - composition-map
+  - cross-cutting-concern
+  - operating-model-spec
+
+typical_docs_reviewed:
+  - platform-policy
+  - composition-map
+  - operating-model-spec
+  - cross-cutting-concern
+
+raci_roles:
+  new_system_design: Consulted
+  technology_selection: Consulted
+  security_review: Consulted
+  deployment_process: Informed
+  incident_response: Informed

@@ -1,93 +1,55 @@
 # Naming Conventions
 
-This directory defines the naming conventions that apply to all files, directories,
-Git branches, labels, and YAML identifiers within the AAC framework.
+This directory defines naming conventions for files, directories, branches,
+labels, and identifiers used across the AAC framework.
 
 ## Quick reference
 
 | Artifact | Pattern | Example |
 |----------|---------|---------|
-| Markdown file | `kebab-case.md` | `adr-0001-use-postgresql.md` |
+| Markdown file | `kebab-case.md` | `plcy-0001-network-segmentation-policy.md` |
 | YAML file | `kebab-case.yaml` | `registry.yaml` |
-| Directory | `kebab-case` | `system-context/` |
-| Git branch | `<type>/kebab-case` | `feat/add-runbook-template` |
+| Directory | `kebab-case` | `cross-cutting-concern/` |
+| Git branch | `<type>/kebab-case` | `docs/update-platform-policy-template` |
 | YAML key | `snake_case` | `schema_version` |
-| Document ID | `kebab-case` | `tech-lead` |
+| Document ID | `kebab-case` | `platform-policy` |
 | Sequence number | `NNNN` (4-digit, zero-padded) | `0001` |
 
 ## Detailed rules
 
-See `rules.yaml` for machine-readable patterns, examples, and rationale for each rule.
+See `rules.yaml` for machine-readable patterns, examples, and rationale.
 
-## Document-type naming patterns
+## Document naming patterns
 
-Each document type has a specific naming pattern defined in `doctypes/registry.yaml`:
+Each doctype pattern is defined in `naming-conventions.yaml`:
 
-| Type | Pattern | Example |
-|------|---------|---------|
-| ADR | `adr-{NNNN}-{slug}.md` | `adr-0001-use-postgresql.md` |
-| RFC | `rfc-{NNNN}-{slug}.md` | `rfc-0001-event-driven-migration.md` |
-| System Context | `system-context-{slug}.md` | `system-context-payment-service.md` |
-| Component Design | `component-design-{slug}.md` | `component-design-order-processor.md` |
-| Runbook | `runbook-{slug}.md` | `runbook-restart-api-gateway.md` |
-| Post-Mortem | `post-mortem-{YYYY-MM-DD}-{slug}.md` | `post-mortem-2024-03-15-db-outage.md` |
+| DocType | Pattern | Example |
+|---------|---------|---------|
+| Platform Policy | `tp-{doctype}-{####}-{slug}.md` | `tp-plcy-0001-avd.md` |
+| Composition Map | `map-{cloud-scope}-{slug}-{####}.md` | `map-azr-data-ingestion-pipeline-0001.md` |
+| Platform Service | `tp-{cloud-scope}-psvc-{####}-{slug}.md` | `tp-azr-psvc-0001-secret-management.md` |
+| Enterprise Service Design | `tp-esvc-{version}-{slug}.md` | `tp-esvc-v1-public-cloud-identity-provider.md` |
+| Pattern Overview | `po-{slug}.md` | `po-reference-integration-architecture.md` |
+| Engineering Specification | `tp-{cloud-scope}-engs-{####}-{slug}.md` | `tp-azr-engs-0001-identity-federation-golden-path.md` |
+| Composite Pattern | `tp-{cloud-scope}-comp-{####}-{slug}.md` | `tp-azr-comp-0001-event-driven-data-sync.md` |
+| Cross Cutting Concern | `tp-xcut-{####}-{slug}.md` | `tp-xcut-0001-observability-standards.md` |
+| Operating Model Specification | `oms-{cloud-scope}-{version}-{####}-{slug}.md` | `oms-azr-v1-0001-incident-management.md` |
 
 ## Slug rules
 
-A **slug** is a concise, descriptive identifier derived from the document title:
+A slug is a concise identifier derived from the title:
 
 1. Convert to lowercase.
 2. Replace spaces and special characters with hyphens (`-`).
 3. Remove consecutive hyphens.
-4. Keep it short (3–6 words).
+4. Keep it short (3-6 words).
 
-**Example**: "Use PostgreSQL as Primary Database" → `use-postgresql-as-primary-database`
-This directory defines the naming conventions used across the Architecture As
-Code (AaC) framework for files, directories, components, and identifiers.
+Example: "Network Segmentation Baseline" -> `network-segmentation-baseline`
 
-## Why Naming Conventions Matter
+## Identifier rules
 
-Consistent names make documents predictable, discoverable, and automatable.
-They reduce cognitive overhead when navigating a repository and enable tooling
-to parse, index, and validate framework artefacts without manual configuration.
-
-## Convention Rules
-
-All rules are specified in [`naming-conventions.yaml`](./naming-conventions.yaml).
-Below is a summary.
-
-### General Rules
-
-| Rule | Example ✅ | Counter-example ❌ |
-|------|-----------|-------------------|
-| Lowercase letters, digits, and hyphens only | `api-gateway` | `APIGateway`, `api_gateway` |
-| Do not start or end with a hyphen | `order-service` | `-order-service` |
-| Prefer full words over abbreviations | `authentication-service` | `auth-svc` |
-
-### File Naming Patterns
-
-| DocType | Pattern | Example |
-|---------|---------|---------|
-| ADR | `adr-{####}-{slug}.md` | `adr-0001-use-postgresql.md` |
-| RFC | `rfc-{####}-{slug}.md` | `rfc-0015-migrate-to-kubernetes.md` |
-| System Context | `{system-slug}-system-context.md` | `payments-system-context.md` |
-| Component Design | `{component-slug}-design.md` | `order-service-design.md` |
-| Runbook | `{service-slug}-runbook-{operation-slug}.md` | `payments-api-runbook-restart-consumer.md` |
-| Post-Mortem | `{YYYY-MM-DD}-post-mortem-{incident-slug}.md` | `2024-03-15-post-mortem-db-exhaustion.md` |
-| RACI | `{activity-slug}.yaml` | `technology-selection.yaml` |
-
-### Component & Repository Names
-
-| Rule | Example ✅ | Counter-example ❌ |
-|------|-----------|-------------------|
-| Lowercase noun phrase | `order-service` | `OrderService` |
-| Include functional suffix | `checkout-service`, `email-worker` | `checkout`, `emailer` |
-| Repository name = component name | repo `order-service` for the Order Service | repo `orders` or `svc-orders` |
-
-### Identifiers (YAML `id` fields)
-
-| Rule | Example ✅ | Counter-example ❌ |
-|------|-----------|-------------------|
-| Lowercase, hyphen-separated | `solution-architect` | `SolutionArchitect` |
-| DocType IDs match `doctypes.yaml` | `adr`, `rfc` | `ADR`, `RFC` |
-| Label keys follow `{category}:{value}` | `doctype:adr` | `ADR`, `doctype-adr` |
+| Rule | Example | Counter-example |
+|------|---------|-----------------|
+| Lowercase, hyphen-separated | `platform-policy` | `PlatformPolicy` |
+| DocType IDs match `doctypes/registry.yaml` | `platform-policy`, `composition-map` | `platform_policy`, `map` |
+| Label keys follow `{category}:{value}` | `doctype:platform-policy` | `doctype-platform-policy` |

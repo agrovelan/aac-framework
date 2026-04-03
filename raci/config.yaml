@@ -13,72 +13,68 @@ raci_values:
   I: Informed       # Notified of progress/outcome; one-way communication
 
 activities:
-  - id: create-adr
-    name: Create Architecture Decision Record
+  - id: create-platform-policy
+    name: Create Platform Policy
     personas:
-      architect: A
-      tech-lead: R
-      developer: C
-      security-engineer: C
-      product-manager: I
-      devops-engineer: I
+      public-cloud-solution-architect: A
+      cloud-adoption-solution-architect: R
+      public-cloud-business-cloud-solution-architect: C
+      public-cloud-platform-engineer: C
+      engineering-platform-engineer: C
+      public-cloud-software-engineer: I
+      public-cloud-business-cloud-engineer: I
 
-  - id: review-adr
-    name: Review and approve ADR
+  - id: create-composition-map
+    name: Create Composition Map
     personas:
-      architect: A
-      tech-lead: R
-      developer: C
-      security-engineer: C
-      product-manager: C
-      devops-engineer: I
+      public-cloud-solution-architect: A
+      cloud-adoption-solution-architect: R
+      public-cloud-business-cloud-solution-architect: C
+      public-cloud-platform-engineer: C
+      engineering-platform-engineer: C
+      public-cloud-software-engineer: C
+      public-cloud-business-cloud-engineer: I
 
-  - id: create-rfc
-    name: Create Request for Comments
+  - id: create-platform-service
+    name: Create Platform Service Specification
     personas:
-      developer: R
-      tech-lead: A
-      architect: C
-      product-manager: C
-      security-engineer: C
-      devops-engineer: I
+      engineering-platform-engineer: A
+      public-cloud-platform-engineer: R
+      public-cloud-software-engineer: C
+      cloud-adoption-solution-architect: C
+      public-cloud-solution-architect: I
+      public-cloud-business-cloud-solution-architect: I
+      public-cloud-business-cloud-engineer: I
 
-  - id: create-system-context
-    name: Create System Context document
+  - id: create-composite-pattern
+    name: Create Composite Pattern
     personas:
-      architect: R
-      tech-lead: A
-      developer: C
-      product-manager: C
-      devops-engineer: C
-      security-engineer: C
+      public-cloud-solution-architect: A
+      cloud-adoption-solution-architect: R
+      engineering-platform-engineer: C
+      public-cloud-platform-engineer: C
+      public-cloud-software-engineer: C
+      public-cloud-business-cloud-solution-architect: I
+      public-cloud-business-cloud-engineer: I
 
-  - id: create-component-design
-    name: Create Component Design document
+  - id: create-cross-cutting-concern
+    name: Create Cross Cutting Concern Document
     personas:
-      developer: R
-      architect: A
-      tech-lead: C
-      security-engineer: C
-      devops-engineer: I
-      product-manager: I
+      engineering-platform-engineer: A
+      public-cloud-platform-engineer: R
+      public-cloud-solution-architect: C
+      public-cloud-software-engineer: C
+      public-cloud-business-cloud-solution-architect: C
+      cloud-adoption-solution-architect: C
+      public-cloud-business-cloud-engineer: I
 
-  - id: create-runbook
-    name: Create Operational Runbook
+  - id: create-operating-model-spec
+    name: Create Operating Model Specification
     personas:
-      devops-engineer: R
-      tech-lead: A
-      developer: C
-      architect: I
-      security-engineer: I
-      product-manager: I
-
-  - id: create-post-mortem
-    name: Create Incident Post-Mortem
-    personas:
-      devops-engineer: R
-      tech-lead: A
-      developer: C
-      architect: C
-      security-engineer: C
-      product-manager: I
+      engineering-platform-engineer: A
+      public-cloud-platform-engineer: R
+      public-cloud-software-engineer: C
+      public-cloud-solution-architect: C
+      cloud-adoption-solution-architect: I
+      public-cloud-business-cloud-solution-architect: I
+      public-cloud-business-cloud-engineer: I

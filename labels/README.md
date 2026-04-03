@@ -26,7 +26,7 @@ AAC framework artifacts, issues, and pull requests.
 | `category: architecture` | Architecture decisions, context, and design documents |
 | `category: proposal` | Requests for Comments and feature proposals |
 | `category: operations` | Runbooks, operational procedures, infrastructure |
-| `category: incident` | Incident reports and post-mortems |
+| `category: incident` | Incident reports and incident-related documentation |
 | `category: design` | Component designs and technical specifications |
 | `category: governance` | Framework rules, naming, label taxonomy |
 
@@ -81,7 +81,7 @@ All labels follow the pattern:
 {category}:{value}
 ```
 
-For example: `doctype:adr`, `status:review`, `priority:high`.
+For example: `doctype:platform-policy`, `status:review`, `priority:high`.
 
 This prefix format prevents collisions between categories and makes it
 immediately clear what dimension of a document a label describes.
@@ -97,12 +97,15 @@ to every document.
 
 | Label | Description |
 |-------|-------------|
-| `doctype:adr` | Architecture Decision Record |
-| `doctype:rfc` | Request for Comments |
-| `doctype:system-context` | System Context document |
-| `doctype:component-design` | Component Design document |
-| `doctype:runbook` | Operational runbook |
-| `doctype:post-mortem` | Incident post-mortem |
+| `doctype:platform-policy` | Platform Policy |
+| `doctype:composition-map` | Composition Map |
+| `doctype:platform-service` | Platform Service |
+| `doctype:enterprise-service-design` | Enterprise Service Design |
+| `doctype:pattern-overview` | Pattern Overview |
+| `doctype:engineering-specification` | Engineering Specification |
+| `doctype:composite-pattern` | Composite Pattern |
+| `doctype:cross-cutting-concern` | Cross Cutting Concern |
+| `doctype:operating-model-spec` | Operating Model Specification |
 
 ### `status` — Lifecycle Stage
 
@@ -131,7 +134,7 @@ Indicates the urgency of the document or its related action items.
 
 ### `severity` — Incident Severity
 
-Applied to post-mortem documents.
+Applied to incident-related documents where severity tracking is required.
 
 | Label | Description |
 |-------|-------------|
@@ -172,4 +175,4 @@ Cross-cutting concern or technical domain the document addresses. Multiple
    the category.
 3. Update the relevant table in this README.
 4. If the label is a required label for a DocType, update
-   [`../doctypes/doctypes.yaml`](../doctypes/doctypes.yaml).
+   [`../doctypes/registry.yaml`](../doctypes/registry.yaml).

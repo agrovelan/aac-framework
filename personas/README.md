@@ -8,23 +8,28 @@ set of documents it **approves**.
 
 | ID | Name | Produces | Approves |
 |----|------|----------|----------|
-| `architect` | Architect | ADR, System Context, Component Design | ADR, RFC, System Context |
-| `developer` | Developer | RFC, Component Design, Runbook | RFC |
-| `product-manager` | Product Manager | — | RFC |
-| `tech-lead` | Tech Lead | ADR, RFC | ADR, RFC, Component Design, Runbook |
-| `devops-engineer` | DevOps Engineer | Runbook, Post-Mortem | Runbook, Post-Mortem |
-| `security-engineer` | Security Engineer | ADR | ADR, Component Design, Post-Mortem |
+| `public-cloud-solution-architect` | Public Cloud Solution Architect | Platform Policy, Composition Map, Composite Pattern, Operating Model Specification | Platform Policy, Composition Map, Composite Pattern, Cross Cutting Concern |
+| `cloud-adoption-solution-architect` | Cloud Adoption Solution Architect | Platform Policy, Composition Map, Platform Service, Operating Model Specification | Platform Policy, Composition Map, Platform Service, Composite Pattern |
+| `public-cloud-business-cloud-solution-architect` | Public Cloud Business Cloud Solution Architect | Platform Policy, Composition Map, Cross Cutting Concern, Operating Model Specification | Platform Policy, Composition Map, Operating Model Specification, Cross Cutting Concern |
+| `public-cloud-platform-engineer` | Public Cloud Platform Engineer | Operating Model Specification, Cross Cutting Concern, Platform Service, Platform Policy | Operating Model Specification, Cross Cutting Concern, Platform Service |
+| `engineering-platform-engineer` | Engineering Platform Engineer | Operating Model Specification, Cross Cutting Concern, Composite Pattern, Composition Map | Operating Model Specification, Cross Cutting Concern, Composite Pattern |
+| `public-cloud-business-cloud-engineer` | Public Cloud Business Cloud Engineer | Platform Service, Operating Model Specification, Cross Cutting Concern, Composition Map | Composition Map, Platform Service |
+| `public-cloud-software-engineer` | Public Cloud Software Engineer | Platform Service, Operating Model Specification, Cross Cutting Concern, Composite Pattern | Composite Pattern, Platform Service |
 
 ## Using personas in RACI matrices
 
-Reference a persona by its `id` field (e.g., `architect`, `tech-lead`) when building
-a RACI matrix. See `raci/config.yaml` and `raci/matrix-template.md` for examples.
+Reference a persona by its `id` field (e.g., `public-cloud-solution-architect`,
+`engineering-platform-engineer`) when building a RACI matrix. See
+`raci/config.yaml` and `raci/matrix-template.md` for examples.
 
 ## Adding a new persona
 
 1. Add an entry to `personas/config.yaml` following the existing schema.
-2. Update the table above.
-3. Update any RACI matrices that should include the new persona.
+2. Create a corresponding `<id>.yaml` file in this directory.
+3. Update the table above.
+4. Update any RACI matrices that should include the new persona.
+
+
 This directory contains YAML definitions for each stakeholder persona recognised
 by the Architecture As Code (AaC) framework.
 
@@ -49,12 +54,13 @@ persona file defines:
 
 | File | Role |
 |------|------|
-| [`solution-architect.yaml`](./solution-architect.yaml) | Solution Architect |
-| [`software-engineer.yaml`](./software-engineer.yaml) | Software Engineer |
-| [`product-manager.yaml`](./product-manager.yaml) | Product Manager |
-| [`technical-lead.yaml`](./technical-lead.yaml) | Technical Lead |
-| [`devops-engineer.yaml`](./devops-engineer.yaml) | DevOps / Platform Engineer |
-| [`security-engineer.yaml`](./security-engineer.yaml) | Security Engineer |
+| [`public-cloud-solution-architect.yaml`](./public-cloud-solution-architect.yaml) | Public Cloud Solution Architect |
+| [`cloud-adoption-solution-architect.yaml`](./cloud-adoption-solution-architect.yaml) | Cloud Adoption Solution Architect |
+| [`public-cloud-business-cloud-solution-architect.yaml`](./public-cloud-business-cloud-solution-architect.yaml) | Public Cloud Business Cloud Solution Architect |
+| [`public-cloud-platform-engineer.yaml`](./public-cloud-platform-engineer.yaml) | Public Cloud Platform Engineer |
+| [`engineering-platform-engineer.yaml`](./engineering-platform-engineer.yaml) | Engineering Platform Engineer |
+| [`public-cloud-business-cloud-engineer.yaml`](./public-cloud-business-cloud-engineer.yaml) | Public Cloud Business Cloud Engineer |
+| [`public-cloud-software-engineer.yaml`](./public-cloud-software-engineer.yaml) | Public Cloud Software Engineer |
 
 ## Adding a New Persona
 

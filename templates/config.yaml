@@ -6,44 +6,65 @@ description: >
   Each sub-directory contains a YAML config and a Markdown template file.
 
 templates:
-  - id: adr
-    name: Architecture Decision Record
-    path: adr/
+  - id: platform-policy
+    name: Platform Policy
+    path: platform-policy/
     file: template.md
-    description: Captures a significant architectural decision with its context and consequences.
-    tags: [architecture, decision, record]
+    description: Defines a governing rule, constraint, or standard that applies across the platform.
+    tags: [governance, policy, constraint]
 
-  - id: rfc
-    name: Request for Comments
-    path: rfc/
+  - id: composition-map
+    name: Composition Map
+    path: composition-map/
     file: template.md
-    description: Proposes a change or new feature for community/team review.
-    tags: [proposal, review, change]
+    description: Documents how platform services and capabilities compose together for a solution.
+    tags: [architecture, composition, landscape]
 
-  - id: system-context
-    name: System Context
-    path: system-context/
+  - id: platform-service
+    name: Platform Service
+    path: platform-service/
     file: template.md
-    description: High-level description of a system and its external interfaces.
-    tags: [architecture, context, diagram]
+    description: Specifies a fully-managed shared service offered by the platform team.
+    tags: [platform, service, contract]
 
-  - id: component-design
-    name: Component Design
-    path: component-design/
+  - id: enterprise-service-design
+    name: Enterprise Service Design
+    path: enterprise-service-design/
     file: template.md
-    description: Detailed design document for a single software component.
-    tags: [design, component, detail]
+    description: Specifies an enterprise service that is depended on by the platform but owned externally.
+    tags: [enterprise, service, dependency]
 
-  - id: runbook
-    name: Operational Runbook
-    path: runbook/
+  - id: pattern-overview
+    name: Pattern Overview
+    path: pattern-overview/
     file: template.md
-    description: Step-by-step operational procedures for a service or system.
-    tags: [operations, runbook, procedure]
+    description: Provides a concise overview of a reusable architecture or delivery pattern.
+    tags: [pattern, overview, architecture]
 
-  - id: post-mortem
-    name: Incident Post-Mortem
-    path: post-mortem/
+  - id: engineering-specification
+    name: Engineering Specification
+    path: engineering-specification/
     file: template.md
-    description: Root-cause analysis and action items following an incident.
-    tags: [incident, retrospective, improvement]
+    description: Engineering output document for implementation guardrails and cloud resource specifications.
+    tags: [engineering, specification, implementation]
+
+  - id: composite-pattern
+    name: Composite Pattern
+    path: composite-pattern/
+    file: template.md
+    description: Documents a reusable multi-service design pattern validated for the platform.
+    tags: [pattern, reuse, blueprint]
+
+  - id: cross-cutting-concern
+    name: Cross Cutting Concern
+    path: cross-cutting-concern/
+    file: template.md
+    description: Documents a concern that spans all platform services, e.g. observability or security.
+    tags: [cross-cutting, governance, standards]
+
+  - id: operating-model-spec
+    name: Operating Model Specification
+    path: operating-model-spec/
+    file: template.md
+    description: Specifies how a platform service or domain is operated day-to-day.
+    tags: [operations, model, runbook]

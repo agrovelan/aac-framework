@@ -3,7 +3,7 @@
 # These rules apply to files, directories, components, and other identifiers
 # produced or consumed by the framework.
 
-version: "1.0"
+version: "1.1"
 
 general:
   description: >
@@ -22,56 +22,89 @@ general:
       example_invalid: "-api-gateway, api-gateway-"
 
     - id: gen-3
-      rule: "Prefer full words over abbreviations unless the abbreviation is widely understood (e.g. api, ui, id, adr, rfc)."
+      rule: "Prefer full words over abbreviations unless the abbreviation is widely understood (e.g. api, ui, id, cli)."
       example_valid: "authentication-service, api-gateway"
       example_invalid: "auth-svc, apigw"
+
+    - id: gen-4
+      rule: "Use approved framework doctype prefixes for framework documents."
+      example_valid: "plcy-0001-network-segmentation-policy.md, cmp-0001-event-driven-data-sync.md"
+      example_invalid: "policy-0001-network-segmentation-policy.md, pattern-0001-event-driven-data-sync.md"
+    - id: gen-5
+      rule: "Use of the term cloud scope refers to either GCP for reference to Google Cloud Platform or AZR for reference to Microsoft Azure."
+      example_valid: "tp-azr-plcy-0001-network-segmentation-policy.md, tp-gcp-cmp-0001-event-driven-data-sync.md"
+      example_invalid: "tp-aws-plcy-0001-network-segmentation-policy.md, tp-azure-cmp-0001-event-driven-data-sync.md"
 
 files:
   description: >
     Rules for naming documentation files within the AaC framework.
 
   patterns:
-    adr:
-      pattern: "adr-{####}-{slug}.md"
-      description: "Architecture Decision Records are numbered sequentially, zero-padded to 4 digits."
-      examples:
-        - "adr-0001-use-postgresql-for-primary-datastore.md"
-        - "adr-0042-adopt-opentelemetry-for-tracing.md"
 
-    rfc:
-      pattern: "rfc-{####}-{slug}.md"
-      description: "Requests for Comments are numbered sequentially, zero-padded to 4 digits."
-      examples:
-        - "rfc-0001-introduce-event-sourcing.md"
-        - "rfc-0015-migrate-to-kubernetes.md"
 
-    system-context:
-      pattern: "{system-slug}-system-context.md"
-      description: "System Context documents are named after the system they describe."
+    platform-policy:
+      rule: "Prefix with tp-, then doctype plcy, then a 3-digit sequence, and a descriptive slug."
+      pattern: "tp-{doctype}-{####}-{slug}.md"
+      description: "Technical Pattern documents use tp- with scope, doctype, and zero-padded sequence number."
       examples:
-        - "payments-system-context.md"
-        - "identity-platform-system-context.md"
+        - "tp-plcy-0001-avd.md"
+        - "tp-plcy-0002-akamai.md"
 
-    component-design:
-      pattern: "{component-slug}-design.md"
-      description: "Component Design documents are named after the component they describe."
+    composition-map:
+      pattern: "map-{cloud-scope}-{slug}-{####}.md"
+      description: "Composition Map documents use the map- prefix with cloud scope, a descriptive slug, and a zero-padded sequence number."
       examples:
-        - "order-service-design.md"
-        - "notification-worker-design.md"
+        - "map-azr-data-ingestion-pipeline-0001.md"
+        - "map-gcp-payments-domain-services-0002.md"
 
-    runbook:
-      pattern: "{service-slug}-runbook-{operation-slug}.md"
-      description: "Runbooks identify both the service and the specific operation they cover."
+    platform-service:
+      pattern: "tp-{cloud-scope}-psvc-{####}-{slug}.md"
+      description: "Platform Service documents use the tp- prefix with cloud scope, doctype, a zero-padded sequence number, and a descriptive slug."
       examples:
-        - "payments-api-runbook-restart-consumer.md"
-        - "database-runbook-point-in-time-restore.md"
+        - "tp-azr-psvc-0001-secret-management.md"
+        - "tp-gcp-psvc-0002-observability-foundation.md"
 
-    post-mortem:
-      pattern: "{YYYY-MM-DD}-post-mortem-{incident-slug}.md"
-      description: "Post-Mortems are prefixed with the incident date (ISO 8601)."
+    enterprise-service-design:
+      pattern: "tp-esvc-{version}-{slug}.md"
+      description: "Enterprise Service Design documents use the esvc- prefix and a descriptive slug."
       examples:
-        - "2024-03-15-post-mortem-database-connection-exhaustion.md"
-        - "2024-07-01-post-mortem-payment-gateway-timeout.md"
+        - "tp-esvc-v1-public-cloud-identity-provider.md"
+        - "tp-esvc-v1-enterprise-api-gateway.md"
+
+    pattern-overview:
+      pattern: "po-{slug}.md"
+      description: "Pattern Overview documents use the po- prefix and a descriptive slug."
+      examples:
+        - "po-reference-integration-architecture.md"
+        - "po-event-driven-domain-decomposition.md"
+
+    engineering-specification:
+      pattern:  "tp-{cloud-scope}-es-{slug}-{####}.md"
+      description: "Engineering Specification documents use the tp- prefix with cloud scope, doctype, slug and a zero-padded sequence number."
+      examples:
+        - "tp-azr-es-identity-federation-golden-path-0001.md"
+        - "tp-gcp-es-secure-data-storage-0002.md"
+
+    composite-pattern:
+      pattern: "tp-{cloud-scope}-comp-{####}-{slug}.md"
+      description: "Composite Pattern documents use the tp- prefix with cloud scope, doctype, a zero-padded sequence number, and a descriptive slug."
+      examples:
+        - "tp-azr-comp-0001-event-driven-data-sync.md"
+        - "tp-gcp-comp-0010-secure-multi-region-api.md"
+
+    cross-cutting-concern:
+      pattern: "tp-xcut-{####}-{slug}.md"
+      description: "Cross Cutting Concern documents use the tp- prefix with a docutype of xcut, a zero-padded sequence number, and a descriptive slug."
+      examples:
+        - "tp-xcut-0001-observability-standards.md"
+        - "tp-xcut-0002-cost-governance-baseline.md"
+
+    operating-model-spec:
+      pattern: "oms-{cloud-scope}-{version}-{####}-{slug}.md"
+      description: "Operating Model Specification documents use the oms- prefix with cloud scope, version, a zero-padded sequence number, and a descriptive slug."
+      examples:
+        - "oms-azr-v1-0001-incident-management.md"
+        - "oms-gcp-v2-0002-change-management.md"
 
     raci:
       pattern: "{activity-slug}.yaml"
@@ -124,15 +157,15 @@ identifiers:
   rules:
     - id: id-1
       rule: "IDs MUST be lowercase, hyphen-separated, and globally unique within their namespace."
-      example_valid: "solution-architect, adr-0001"
-      example_invalid: "SolutionArchitect, adr_0001"
+      example_valid: "solution-architect, composite-pattern"
+      example_invalid: "SolutionArchitect, composite_pattern"
 
     - id: id-2
-      rule: "DocType IDs MUST match the id field in doctypes.yaml."
-      example_valid: "adr, rfc, system-context"
-      example_invalid: "ADR, Request-For-Comments"
+      rule: "DocType IDs MUST match the id field in doctypes/registry.yaml."
+      example_valid: "platform-policy, composition-map, operating-model-spec"
+      example_invalid: "PlatformPolicy, platform_policy, operating_model_spec"
 
     - id: id-3
-      rule: "Label keys MUST follow the pattern {category}:{value} using the taxonomy in labels.yaml."
-      example_valid: "doctype:adr, status:draft, priority:high"
-      example_invalid: "ADR, draft, high"
+      rule: "Label keys MUST follow the pattern {category}:{value} using the taxonomy in labels/taxonomy.yaml."
+      example_valid: "doctype:platform-policy, status:draft, priority:high"
+      example_invalid: "doctype-platform-policy, Draft, High"

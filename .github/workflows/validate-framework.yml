@@ -1,0 +1,32 @@
+name: Validate AAC Framework
+
+on:
+  pull_request:
+    paths:
+      - "**/*.yaml"
+      - "**/*.yml"
+      - "**/*.md"
+      - "scripts/validate-framework.ps1"
+      - ".github/workflows/validate-framework.yml"
+  push:
+    branches:
+      - main
+    paths:
+      - "**/*.yaml"
+      - "**/*.yml"
+      - "**/*.md"
+      - "scripts/validate-framework.ps1"
+      - ".github/workflows/validate-framework.yml"
+
+jobs:
+  validate:
+    name: Validate Schema And References
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run framework validation
+        shell: pwsh
+        run: ./scripts/validate-framework.ps1
