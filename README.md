@@ -11,47 +11,168 @@ described both as a **YAML configuration** (machine-readable) and as **Markdown 
 
 ## Repository structure
 
-```
+```text
 aac-framework/
+├── .github/
+│   └── workflows/
+│       └── validate-framework.yml
 ├── config/
 │   └── framework.yaml          # Top-level framework configuration
-├── templates/                  # Reusable document templates
-│   ├── config.yaml
-│   ├── README.md
-│   ├── adr/                    # Architecture Decision Record
-│   ├── rfc/                    # Request for Comments
-│   ├── system-context/         # System Context diagram brief
-│   ├── component-design/       # Component design document
-│   ├── runbook/                # Operational runbook
-│   └── post-mortem/            # Incident post-mortem
-├── personas/                   # Role definitions
-│   ├── config.yaml
-│   └── README.md
-├── raci/                       # RACI accountability matrices
-│   ├── config.yaml
-│   ├── README.md
-│   └── matrix-template.md
 ├── doctypes/                   # Document-type registry
 │   ├── config.yaml
+│   ├── doctypes.yaml
 │   ├── registry.yaml
+│   └── README.md
+├── labels/                     # Label taxonomy
+│   ├── config.yaml
+│   ├── labels.yaml
+│   ├── taxonomy.yaml
 │   └── README.md
 ├── naming/                     # Naming-convention rules
 │   ├── config.yaml
+│   ├── naming-conventions.yaml
 │   ├── rules.yaml
 │   └── README.md
-└── labels/                     # Label taxonomy
-    ├── config.yaml
-    ├── taxonomy.yaml
-    └── README.md
+├── personas/                   # Role definitions
+│   ├── config.yaml
+│   ├── cloud-adoption-solution-architect.yaml
+│   ├── engineering-platform-engineer.yaml
+│   ├── public-cloud-business-cloud-engineer.yaml
+│   ├── public-cloud-business-cloud-solution-architect.yaml
+│   ├── public-cloud-platform-engineer.yaml
+│   ├── public-cloud-software-engineer.yaml
+│   ├── public-cloud-solution-architect.yaml
+│   └── README.md
+├── raci/                       # RACI accountability matrices
+│   ├── config.yaml
+│   ├── incident-response.yaml
+│   ├── matrix-template.md
+│   ├── new-system-design.yaml
+│   ├── raci-template.md
+│   ├── technology-selection.yaml
+│   └── README.md
+├── scripts/                    # Local automation and validation tools
+│   ├── new-document.ps1
+│   └── validate-framework.ps1
+├── templates/                  # Reusable document templates
+│   ├── config.yaml
+│   ├── composite-pattern/
+│   ├── composition-map/
+│   ├── cross-cutting-concern/
+│   ├── enterprise-service-design/
+│   ├── operating-model-spec/
+│   ├── platform-policy/
+│   └── platform-service/
+└── README.md
 ```
 
 ## Quick start
 
 1. Pick a **template** from `templates/` that matches your artifact type.
-2. Copy the template into your project's `docs/` directory and fill in the placeholders.
-3. Apply the **naming conventions** defined in `naming/rules.yaml`.
-4. Tag the document with the relevant **labels** from `labels/taxonomy.yaml`.
-5. Assign ownership using the **RACI matrix** in `raci/matrix-template.md`.
+2. Scaffold a new document using `scripts/new-document.ps1`.
+3. Fill in the placeholders and metadata.
+4. Apply the **naming conventions** defined in `naming/naming-conventions.yaml`.
+5. Tag the document with the relevant **labels** from `labels/taxonomy.yaml`.
+6. Assign ownership using the **RACI matrix** in `raci/matrix-template.md`.
+
+## Document Types
+
+| DocType ID | Abbreviation | Naming pattern |
+| ----------- | ------------ | ---------------- |
+| `platform-policy` | PLCY | `tp-{doctype}-{####}-{slug}.md` |
+| `composition-map` | MAP | `map-{cloud-scope}-{slug}-{####}.md` |
+| `platform-service` | PSVC | `tp-{cloud-scope}-psvc-{####}-{slug}.md` |
+| `enterprise-service-design` | ESVC | `tp-esvc-{version}-{slug}.md` |
+| `pattern-overview` | PO | `po-{slug}.md` |
+| `engineering-specification` | ENGS | `tp-{cloud-scope}-es-{####}-{slug}.md` |
+| `composite-pattern` | CMP | `tp-{cloud-scope}-comp-{####}-{slug}.md` |
+| `cross-cutting-concern` | XCUT | `tp-xcut-{####}-{slug}.md` |
+| `operating-model-spec` | OMS | `oms-{cloud-scope}-{version}-{####}-{slug}.md` |
+
+`enterprise-service-design` is for services your platform depends on but does not own.
+Example ownership model: **Owner = Public Cloud**.
+
+## Scaffold a new document
+
+Create documents with the scaffold script in `scripts/new-document.ps1`.
+
+How it works:
+
+1. You choose a `DocType`.
+2. The script reads the matching naming pattern from `naming/naming-conventions.yaml`.
+3. The script resolves required placeholders such as `cloud-scope`, `version`, `slug`, and sequence number.
+4. A file is created in your target folder from the configured template.
+
+Common parameters:
+
+| Parameter | Required | Description |
+| --------- | -------- | ----------- |
+| `-DocType` | Yes | Doctype ID (example: `engineering-specification`) |
+| `-Slug` | Conditional | Required when naming pattern contains `{slug}` |
+| `-CloudScope` | Conditional | Required when naming pattern contains `{cloud-scope}`. Allowed values: `azr`, `gcp` |
+| `-Version` | Conditional | Required when naming pattern contains `{version}` |
+| `-Title` | No | Optional display title for template placeholders |
+| `-OutputDir` | No | Output folder (default: `docs`) |
+| `-Status` | No | Initial status value (default: `Draft`) |
+| `-Owner` | No | Owner value injected into supported template placeholders |
+
+Example commands for each doctype:
+
+`platform-policy`
+
+```powershell
+pwsh ./scripts/new-document.ps1 -DocType platform-policy -Slug network-topology-and-connectivity -OutputDir docs -Owner "Cloud Adoption Solution Architect"
+```
+
+`composition-map`
+
+```powershell
+pwsh ./scripts/new-document.ps1 -DocType composition-map -CloudScope azr -Slug data-ingestion-pipeline -OutputDir docs -Owner "Public Cloud Solution Architect"
+```
+
+`platform-service`
+
+```powershell
+pwsh ./scripts/new-document.ps1 -DocType platform-service -CloudScope gcp -Slug secret-management -OutputDir docs -Owner "Public Cloud Platform Engineer"
+```
+
+`enterprise-service-design`
+
+```powershell
+pwsh ./scripts/new-document.ps1 -DocType enterprise-service-design -Version v1 -Slug public-cloud-identity-provider -OutputDir docs -Owner "Public Cloud"
+```
+
+`pattern-overview`
+
+```powershell
+pwsh ./scripts/new-document.ps1 -DocType pattern-overview -Slug reference-integration-architecture -OutputDir docs -Owner "Public Cloud Business Cloud Solution Architect"
+```
+
+`engineering-specification`
+
+```powershell
+pwsh ./scripts/new-document.ps1 -DocType engineering-specification -CloudScope azr -Slug identity-federation-golden-path -OutputDir docs -Owner "Public Cloud Platform Engineer"
+```
+
+`composite-pattern`
+
+```powershell
+pwsh ./scripts/new-document.ps1 -DocType composite-pattern -CloudScope azr -Slug event-driven-data-sync -OutputDir docs -Owner "Public Cloud Solution Architect"
+```
+
+`cross-cutting-concern`
+
+```powershell
+pwsh ./scripts/new-document.ps1 -DocType cross-cutting-concern -Slug observability-standards -OutputDir docs -Owner "Engineering Platform Engineer"
+```
+
+`operating-model-spec`
+
+```powershell
+pwsh ./scripts/new-document.ps1 -DocType operating-model-spec -CloudScope gcp -Version v1 -Slug incident-management -OutputDir docs -Owner "Engineering Platform Engineer"
+```
+
+Tip: `-Title` is optional and only used for template display placeholders; filename generation uses naming placeholders (`-Slug`, `-CloudScope`, `-Version`) based on the selected doctype pattern.
 
 ## Contributing
 

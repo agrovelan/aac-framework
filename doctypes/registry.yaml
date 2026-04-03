@@ -7,107 +7,186 @@ description: >
   naming pattern, and required metadata fields.
 
 doctypes:
-  - id: adr
-    name: Architecture Decision Record
-    abbreviation: ADR
-    template: templates/adr/template.md
-    naming_pattern: "adr-{NNNN}-{slug}.md"
-    naming_example: "adr-0001-use-postgresql-as-primary-database.md"
+  - id: platform-policy
+    name: Platform Policy
+    abbreviation: PLCY
+    template: templates/platform-policy/template.md
+    naming_pattern: "plcy-{NNNN}-{slug}.md"
+    naming_example: "plcy-0001-network-segmentation-policy.md"
     labels:
-      category: architecture
-      status: [proposed, accepted, deprecated, superseded]
+      category: governance
+      status: [draft, review, accepted, deprecated, superseded]
     required_metadata:
       - title
       - date
       - status
-      - deciders
+      - owner
+      - scope
     description: >
-      Captures a significant architectural decision, its context,
-      and the consequences of the decision.
+      Defines a governing rule, constraint, or standard that applies across
+      the platform. Policies are authoritative and must be complied with by
+      all platform services and workloads within their stated scope.
 
-  - id: rfc
-    name: Request for Comments
-    abbreviation: RFC
-    template: templates/rfc/template.md
-    naming_pattern: "rfc-{NNNN}-{slug}.md"
-    naming_example: "rfc-0001-migrate-to-event-driven-architecture.md"
+  - id: composition-map
+    name: Composition Map
+    abbreviation: MAP
+    template: templates/composition-map/template.md
+    naming_pattern: "map-{slug}.md"
+    naming_example: "map-data-ingestion-pipeline.md"
     labels:
-      category: proposal
-      status: [draft, open, accepted, rejected, withdrawn]
+      category: architecture
+      status: [draft, review, approved, outdated]
+    required_metadata:
+      - title
+      - date
+      - owner
+      - scope
+    description: >
+      Visualises and documents how platform services, capabilities, and
+      workloads are composed together to deliver a business or technical
+      capability. Acts as the landscape map for a solution or domain.
+
+  - id: platform-service
+    name: Platform Service
+    abbreviation: PSVC
+    template: templates/platform-service/template.md
+    naming_pattern: "psvc-{slug}.md"
+    naming_example: "psvc-secret-management.md"
+    labels:
+      category: design
+      status: [draft, review, approved, deprecated]
+    required_metadata:
+      - service_name
+      - owner
+      - date
+      - status
+      - version
+    description: >
+      Specifies and documents a fully-managed shared service offered by the
+      platform team. Defines the service contract, APIs, SLOs, onboarding
+      guide, and operational responsibilities.
+
+  - id: enterprise-service-design
+    name: Enterprise Service Design
+    abbreviation: ESVC
+    template: templates/enterprise-service-design/template.md
+    naming_pattern: "esvc-{slug}.md"
+    naming_example: "esvc-public-cloud-identity-provider.md"
+    labels:
+      category: design
+      status: [draft, review, approved, deprecated]
+    required_metadata:
+      - title
+      - date
+      - status
+      - owner
+      - dependency_owner
+      - version
+    description: >
+      Specifies an enterprise service design that platform workloads depend on
+      but do not own. Documents service boundaries, ownership model,
+      integration contract, and operational expectations for external providers
+      such as Public Cloud managed enterprise services.
+
+  - id: pattern-overview
+    name: Pattern Overview
+    abbreviation: PO
+    template: templates/pattern-overview/template.md
+    naming_pattern: "po-{slug}.md"
+    naming_example: "po-reference-integration-architecture.md"
+    labels:
+      category: architecture
+      status: [draft, review, accepted, deprecated]
+    required_metadata:
+      - title
+      - date
+      - status
+      - owner
+      - scope
+      - version
+    description: >
+      Provides a concise overview of a reusable architecture or delivery
+      pattern, including intent, when to use it, constraints, and known
+      trade-offs. Used to communicate pattern guidance to cross-functional
+      teams before deeper design artifacts are produced.
+
+  - id: engineering-specification
+    name: Engineering Specification
+    abbreviation: ENGS
+    template: templates/engineering-specification/template.md
+    naming_pattern: "tp-{cloud-scope}-engs-{####}-{slug}.md"
+    naming_example: "tp-azr-engs-0001-identity-federation-golden-path.md"
+    labels:
+      category: design
+      status: [draft, review, approved, deprecated]
+    required_metadata:
+      - title
+      - date
+      - status
+      - owner
+      - scope
+      - version
+      - audience
+    description: >
+      Engineering output document used by implementation teams to define
+      golden path boundaries, interface contracts, sentinel guardrails,
+      cloud resource selections, and label standards, with traceability
+      back to architecture decisions.
+
+  - id: composite-pattern
+    name: Composite Pattern
+    abbreviation: CMP
+    template: templates/composite-pattern/template.md
+    naming_pattern: "cmp-{NNNN}-{slug}.md"
+    naming_example: "cmp-0001-event-driven-data-sync.md"
+    labels:
+      category: architecture
+      status: [draft, review, accepted, deprecated]
     required_metadata:
       - title
       - date
       - author
       - status
     description: >
-      Proposes a change or new feature and solicits feedback from the
-      wider team before implementation begins.
+      Documents a reusable multi-service or multi-layer design pattern
+      validated for use on the platform. Composite patterns combine platform
+      services and capabilities into a proven, repeatable solution blueprint.
 
-  - id: system-context
-    name: System Context
-    abbreviation: SC
-    template: templates/system-context/template.md
-    naming_pattern: "system-context-{slug}.md"
-    naming_example: "system-context-payment-service.md"
+  - id: cross-cutting-concern
+    name: Cross Cutting Concern
+    abbreviation: XCUT
+    template: templates/cross-cutting-concern/template.md
+    naming_pattern: "xcut-{slug}.md"
+    naming_example: "xcut-observability-standards.md"
     labels:
-      category: architecture
-      status: [draft, reviewed, approved]
+      category: governance
+      status: [draft, review, accepted, deprecated]
     required_metadata:
-      - system_name
-      - owner
+      - title
       - date
-    description: >
-      High-level description of a system and its interactions with
-      external actors and systems.
-
-  - id: component-design
-    name: Component Design
-    abbreviation: CD
-    template: templates/component-design/template.md
-    naming_pattern: "component-design-{slug}.md"
-    naming_example: "component-design-order-processor.md"
-    labels:
-      category: design
-      status: [draft, reviewed, approved]
-    required_metadata:
-      - component_name
       - owner
-      - date
-      - status
+      - domains_affected
     description: >
-      Detailed design document for a single software component,
-      including its interfaces, dependencies, and non-functional requirements.
+      Documents a concern that cuts across all platform services and
+      workloads — such as observability, security, resilience, compliance,
+      or cost governance — and defines how it is addressed consistently.
 
-  - id: runbook
-    name: Operational Runbook
-    abbreviation: RB
-    template: templates/runbook/template.md
-    naming_pattern: "runbook-{slug}.md"
-    naming_example: "runbook-restart-api-gateway.md"
+  - id: operating-model-spec
+    name: Operating Model Specification
+    abbreviation: OMS
+    template: templates/operating-model-spec/template.md
+    naming_pattern: "oms-{slug}.md"
+    naming_example: "oms-incident-management.md"
     labels:
       category: operations
-      status: [draft, reviewed, approved]
+      status: [draft, review, approved, deprecated]
     required_metadata:
-      - service_name
-      - owner
-      - last_reviewed
-    description: >
-      Step-by-step operational procedure for a service or system,
-      including verification and rollback steps.
-
-  - id: post-mortem
-    name: Incident Post-Mortem
-    abbreviation: PM
-    template: templates/post-mortem/template.md
-    naming_pattern: "post-mortem-{YYYY-MM-DD}-{slug}.md"
-    naming_example: "post-mortem-2024-03-15-database-outage.md"
-    labels:
-      category: incident
-      status: [draft, reviewed, closed]
-    required_metadata:
-      - incident_id
+      - title
       - date
-      - severity
-      - lead
+      - owner
+      - scope
+      - version
     description: >
-      Root-cause analysis and action items following a production incident.
+      Specifies how a platform service, capability, or domain is operated
+      day-to-day. Covers responsibilities, escalation paths, runbook
+      references, SLO targets, on-call arrangements, and change processes.

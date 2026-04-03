@@ -1,0 +1,49 @@
+id: cloud-adoption-solution-architect
+name: Cloud Adoption Solution Architect
+aliases:
+  - Cloud Migration Architect
+  - CASA
+
+description: >
+  Specialises in guiding organisations through structured cloud adoption journeys.
+  Owns migration strategy, workload assessment, and the target-state architecture
+  that balances speed of adoption with operational and security best practices.
+  Acts as the primary technical authority for cloud adoption programmes and uses
+  frameworks such as the AWS CAF, Azure CAF, and Google CCFT.
+
+responsibilities:
+  - Define and own cloud adoption roadmaps, migration waves, and cut-over plans.
+  - Assess on-premises and legacy workloads for re-host, re-platform, or re-architect patterns.
+  - Author System Context and ADR documents capturing migration decisions.
+  - Establish cloud operating models, landing-zone designs, and governance guardrails.
+  - Collaborate with business stakeholders to align adoption priorities with outcomes.
+  - Review component designs for migration compatibility and cloud-readiness.
+  - Track adoption progress against defined milestones and document lessons learned.
+
+skills:
+  - Cloud Adoption Framework (AWS CAF, Azure CAF, Google CCFT)
+  - Workload migration and modernisation strategies (6Rs)
+  - Landing-zone and multi-account / management-group design
+  - Identity federation and hybrid connectivity (VPN, ExpressRoute, Direct Connect)
+  - Change management and stakeholder engagement
+  - Risk assessment and migration dependency mapping
+
+typical_docs_authored:
+  - platform-policy
+  - composition-map
+  - platform-service
+  - operating-model-spec
+
+typical_docs_reviewed:
+  - platform-policy
+  - composition-map
+  - platform-service
+  - composite-pattern
+  - operating-model-spec
+
+raci_roles:
+  new_system_design: Responsible
+  technology_selection: Accountable
+  security_review: Consulted
+  deployment_process: Consulted
+  incident_response: Informed

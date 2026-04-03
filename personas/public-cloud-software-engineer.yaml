@@ -1,0 +1,50 @@
+id: public-cloud-software-engineer
+name: Public Cloud Software Engineer
+aliases:
+  - Cloud Software Engineer
+  - PCSE
+
+description: >
+  Designs, builds, tests, and operates cloud-native software components and
+  services running on public cloud infrastructure. Accountable for the quality,
+  security, and operability of the code they produce, and collaborates closely
+  with architects and platform engineers to build scalable, resilient services
+  that leverage managed cloud capabilities.
+
+responsibilities:
+  - Implement cloud-native services and features following architectural guidelines and ADRs.
+  - Author Component Design documents for cloud services or features they own.
+  - Write and maintain Runbooks for cloud services they operate.
+  - Participate in incident response and contribute to Post-Mortem write-ups.
+  - Raise RFCs for significant implementation changes affecting shared cloud systems.
+  - Follow naming conventions and apply correct labels to all cloud resources and documents.
+  - Implement security best practices: secrets management, least-privilege IAM, input validation.
+  - Optimise cloud workloads for performance, cost-efficiency, and reliability.
+
+skills:
+  - Software development in one or more languages (Python, Go, Java, TypeScript, etc.)
+  - Cloud-native development patterns (event-driven, serverless, containerised workloads)
+  - Unit, integration, and contract testing for distributed systems
+  - Cloud SDK usage and infrastructure-from-code patterns (CDK, Pulumi Automation API)
+  - Secrets management and cloud-native IAM (IRSA, workload identity, managed identities)
+  - Observability instrumentation (structured logging, distributed tracing, custom metrics)
+  - CI/CD pipelines and GitOps workflows
+
+typical_docs_authored:
+  - platform-service
+  - operating-model-spec
+  - cross-cutting-concern
+  - composite-pattern
+
+typical_docs_reviewed:
+  - platform-policy
+  - composite-pattern
+  - platform-service
+  - operating-model-spec
+
+raci_roles:
+  new_system_design: Responsible
+  technology_selection: Consulted
+  security_review: Responsible
+  deployment_process: Responsible
+  incident_response: Responsible

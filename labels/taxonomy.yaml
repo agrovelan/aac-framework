@@ -13,12 +13,18 @@ categories:
       - name: "status: draft"
         color: "ededed"
         description: Work in progress — not ready for review.
+      - name: "status: review"
+        color: "5319e7"
+        description: Ready for formal review by designated reviewers.
       - name: "status: open"
         color: "0075ca"
         description: Ready for community review and comment.
       - name: "status: proposed"
         color: "cfd3d7"
         description: Proposal submitted, awaiting decision.
+      - name: "status: approved"
+        color: "0e8a16"
+        description: Approved for use and implementation.
       - name: "status: accepted"
         color: "0e8a16"
         description: Proposal accepted and ready for implementation.
@@ -31,6 +37,9 @@ categories:
       - name: "status: superseded"
         color: "e4e669"
         description: Replaced by a newer document (see supersedes field).
+      - name: "status: outdated"
+        color: "e4e669"
+        description: Still available for reference but no longer current.
       - name: "status: withdrawn"
         color: "e4e669"
         description: Proposal withdrawn by the author.

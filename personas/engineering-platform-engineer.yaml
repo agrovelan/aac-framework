@@ -1,0 +1,49 @@
+id: engineering-platform-engineer
+name: Engineering Platform Engineer
+aliases:
+  - Internal Developer Platform Engineer
+  - EPE
+
+description: >
+  Builds and maintains the Internal Developer Platform (IDP) that enables
+  engineering teams to self-serve infrastructure, environments, and deployment
+  pipelines. Focused on developer experience, golden paths, and platform
+  abstractions that reduce cognitive load while enforcing organisational standards.
+
+responsibilities:
+  - Design and build the Internal Developer Platform (backstage catalogs, service templates).
+  - Maintain golden-path templates for microservices, pipelines, and environments.
+  - Operate and evolve the self-service developer toolchain and portal.
+  - Define and maintain engineering standards, linting, and policy-as-code gates.
+  - Author and maintain Runbooks for platform services and developer tooling.
+  - Lead incident response for platform tooling and developer-experience services.
+  - Collaborate with Public Cloud Platform Engineers on cloud resource abstractions.
+  - Contribute to Post-Mortem write-ups for platform-impacting incidents.
+
+skills:
+  - Internal Developer Platform tooling (Backstage, Port, Cortex)
+  - Platform engineering patterns (golden paths, paved roads, self-service)
+  - CI/CD pipeline engineering (GitHub Actions, Azure Pipelines, Tekton)
+  - Policy as code (OPA, Conftest, Checkov)
+  - Container orchestration (Kubernetes, Helm, Kustomize)
+  - Developer experience metrics (DORA, SPACE framework)
+  - API design for platform abstractions
+
+typical_docs_authored:
+  - operating-model-spec
+  - cross-cutting-concern
+  - composite-pattern
+  - composition-map
+
+typical_docs_reviewed:
+  - composite-pattern
+  - cross-cutting-concern
+  - composition-map
+  - operating-model-spec
+
+raci_roles:
+  new_system_design: Consulted
+  technology_selection: Consulted
+  security_review: Consulted
+  deployment_process: Accountable
+  incident_response: Accountable

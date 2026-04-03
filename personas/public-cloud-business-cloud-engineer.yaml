@@ -1,0 +1,49 @@
+id: public-cloud-business-cloud-engineer
+name: Public Cloud Business Cloud Engineer
+aliases:
+  - Business Cloud Engineer
+  - PCBCE
+
+description: >
+  Implements and integrates cloud-based business solutions including SaaS
+  platforms, low-code/no-code tooling, data integrations, and business-process
+  automation on public cloud. Translates business requirements into configured
+  or lightly coded cloud solutions, ensuring they meet corporate governance,
+  data, and security standards.
+
+responsibilities:
+  - Build and configure business cloud solutions (CRM, ERP, BPM, data integration platforms).
+  - Implement data pipelines and integration flows between cloud-hosted SaaS products.
+  - Author Component Design documents for business-facing cloud solutions.
+  - Maintain Runbooks and operational documentation for business applications.
+  - Apply organisational naming conventions and label taxonomy to all cloud resources.
+  - Raise RFCs for significant changes to business data flows or integrations.
+  - Participate in incident response for business-critical cloud applications.
+  - Collaborate with Business Cloud Solution Architects to validate implementation fidelity.
+
+skills:
+  - Cloud integration platforms (Azure Integration Services, AWS EventBridge, MuleSoft)
+  - SaaS platform configuration and administration (Salesforce, ServiceNow, Dynamics 365)
+  - Low-code/no-code tooling (Power Platform, Mendix, Appian)
+  - Data transformation and ETL/ELT patterns
+  - API consumption and basic REST/GraphQL integration
+  - Identity and access management for business applications
+
+typical_docs_authored:
+  - platform-service
+  - operating-model-spec
+  - cross-cutting-concern
+  - composition-map
+
+typical_docs_reviewed:
+  - platform-policy
+  - composition-map
+  - platform-service
+  - operating-model-spec
+
+raci_roles:
+  new_system_design: Responsible
+  technology_selection: Consulted
+  security_review: Responsible
+  deployment_process: Responsible
+  incident_response: Responsible
