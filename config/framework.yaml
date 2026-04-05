@@ -1,0 +1,37 @@
+---
+# AAC Framework — top-level configuration
+name: aac-framework
+version: "1.0.0"
+description: >
+  Architecture as Code (AAC) framework providing structured templates,
+  personas, RACI matrices, document-type registry, naming conventions,
+  and label taxonomies — all stored and versioned in Git.
+
+components:
+  - name: templates
+    path: templates/
+    description: Reusable document templates for architectural artifacts.
+  - name: personas
+    path: personas/
+    description: Role definitions and responsibilities for framework contributors.
+  - name: raci
+    path: raci/
+    description: RACI accountability matrices for architectural activities.
+  - name: doctypes
+    path: doctypes/
+    description: Registry of recognised document types and their metadata.
+  - name: naming
+    path: naming/
+    description: Naming-convention rules for files, directories, and identifiers.
+  - name: labels
+    path: labels/
+    description: Label taxonomy for categorising, triaging, and filtering artifacts.
+
+defaults:
+  encoding: utf-8
+  line_endings: lf
+  indent: 2
+
+governance:
+  review_required: true
+  approvers_min: 1

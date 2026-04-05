@@ -1,0 +1,70 @@
+---
+# templates/ — configuration
+name: templates
+description: >
+  Reusable document templates for architectural and operational artifacts.
+  Each sub-directory contains a YAML config and a Markdown template file.
+
+templates:
+  - id: platform-policy
+    name: Platform Policy
+    path: platform-policy/
+    file: template.md
+    description: Defines a governing rule, constraint, or standard that applies across the platform.
+    tags: [governance, policy, constraint]
+
+  - id: composition-map
+    name: Composition Map
+    path: composition-map/
+    file: template.md
+    description: Documents how platform services and capabilities compose together for a solution.
+    tags: [architecture, composition, landscape]
+
+  - id: platform-service
+    name: Platform Service
+    path: platform-service/
+    file: template.md
+    description: Specifies a fully-managed shared service offered by the platform team.
+    tags: [platform, service, contract]
+
+  - id: enterprise-service-design
+    name: Enterprise Service Design
+    path: enterprise-service-design/
+    file: template.md
+    description: Specifies an enterprise service that is depended on by the platform but owned externally.
+    tags: [enterprise, service, dependency]
+
+  - id: pattern-overview
+    name: Pattern Overview
+    path: pattern-overview/
+    file: template.md
+    description: Provides a concise overview of a reusable architecture or delivery pattern.
+    tags: [pattern, overview, architecture]
+
+  - id: engineering-specification
+    name: Engineering Specification
+    path: engineering-specification/
+    file: template.md
+    description: Engineering output document for implementation guardrails and cloud resource specifications.
+    tags: [engineering, specification, implementation]
+
+  - id: composite-pattern
+    name: Composite Pattern
+    path: composite-pattern/
+    file: template.md
+    description: Documents a reusable multi-service design pattern validated for the platform.
+    tags: [pattern, reuse, blueprint]
+
+  - id: cross-cutting-concern
+    name: Cross Cutting Concern
+    path: cross-cutting-concern/
+    file: template.md
+    description: Documents a concern that spans all platform services, e.g. observability or security.
+    tags: [cross-cutting, governance, standards]
+
+  - id: operating-model-spec
+    name: Operating Model Specification
+    path: operating-model-spec/
+    file: template.md
+    description: Specifies how a platform service or domain is operated day-to-day.
+    tags: [operations, model, runbook]

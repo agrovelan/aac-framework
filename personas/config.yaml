@@ -1,0 +1,85 @@
+---
+# personas/ — configuration
+name: personas
+description: >
+  Role definitions for contributors to the AAC framework and the projects
+  that adopt it. Each persona describes responsibilities, decision-making
+  authority, and the artifacts they are expected to produce or review.
+
+personas:
+  - id: public-cloud-solution-architect
+    name: Public Cloud Solution Architect
+    aliases: [cloud-architect, pcsa]
+    responsibilities:
+      - Define and maintain System Context and Component Design documents for cloud solutions.
+      - Author and approve Architecture Decision Records (ADRs) for cloud design choices.
+      - Define cloud architecture guardrails and reference architectures.
+      - Ensure solutions align with security, compliance, and cost-governance standards.
+    produces: [platform-policy, composition-map, composite-pattern, operating-model-spec]
+    approves: [platform-policy, composition-map, composite-pattern, cross-cutting-concern]
+
+  - id: cloud-adoption-solution-architect
+    name: Cloud Adoption Solution Architect
+    aliases: [cloud-migration-architect, casa]
+    responsibilities:
+      - Define and own cloud adoption roadmaps and migration strategies.
+      - Assess workloads for re-host, re-platform, or re-architect patterns.
+      - Establish cloud operating models, landing-zone designs, and governance guardrails.
+      - Collaborate with business stakeholders to align adoption priorities with outcomes.
+    produces: [platform-policy, composition-map, platform-service, operating-model-spec]
+    approves: [platform-policy, composition-map, platform-service, composite-pattern]
+
+  - id: public-cloud-business-cloud-solution-architect
+    name: Public Cloud Business Cloud Solution Architect
+    aliases: [business-cloud-architect, pcbcsa]
+    responsibilities:
+      - Translate business requirements and OKRs into cloud solution architectures.
+      - Define total-cost-of-ownership models and cloud investment business cases.
+      - Ensure cloud solutions comply with data sovereignty, privacy, and regulatory requirements.
+      - Represent business cloud architecture in governance, risk, and compliance forums.
+    produces: [platform-policy, composition-map, cross-cutting-concern, operating-model-spec]
+    approves: [platform-policy, composition-map, operating-model-spec, cross-cutting-concern]
+
+  - id: public-cloud-platform-engineer
+    name: Public Cloud Platform Engineer
+    aliases: [cloud-platform-engineer, pcpe]
+    responsibilities:
+      - Design and maintain cloud landing zones, account vending, and network topology.
+      - Implement and manage infrastructure as code (Terraform, Bicep, CDK).
+      - Build and operate cloud-native CI/CD pipelines and deployment toolchains.
+      - Lead incident response for cloud infrastructure and platform incidents.
+    produces: [operating-model-spec, cross-cutting-concern, platform-service, platform-policy]
+    approves: [operating-model-spec, cross-cutting-concern, platform-service]
+
+  - id: engineering-platform-engineer
+    name: Engineering Platform Engineer
+    aliases: [internal-developer-platform-engineer, epe]
+    responsibilities:
+      - Design and build the Internal Developer Platform (service catalogs, golden paths).
+      - Maintain self-service developer toolchains, portals, and pipeline templates.
+      - Define and maintain engineering standards, linting, and policy-as-code gates.
+      - Lead incident response for platform tooling and developer-experience services.
+    produces: [operating-model-spec, cross-cutting-concern, composite-pattern, composition-map]
+    approves: [operating-model-spec, cross-cutting-concern, composite-pattern]
+
+  - id: public-cloud-business-cloud-engineer
+    name: Public Cloud Business Cloud Engineer
+    aliases: [business-cloud-engineer, pcbce]
+    responsibilities:
+      - Build and configure business cloud solutions (SaaS platforms, BPM, data integrations).
+      - Implement data pipelines and integration flows between cloud-hosted SaaS products.
+      - Author Component Design documents for business-facing cloud solutions.
+      - Maintain Runbooks and operational documentation for business applications.
+    produces: [platform-service, operating-model-spec, cross-cutting-concern, composition-map]
+    approves: [composition-map, platform-service]
+
+  - id: public-cloud-software-engineer
+    name: Public Cloud Software Engineer
+    aliases: [cloud-software-engineer, pcse]
+    responsibilities:
+      - Implement cloud-native services and features following architectural guidelines and ADRs.
+      - Author Component Design documents for cloud services they own.
+      - Write and maintain Runbooks for cloud services they operate.
+      - Raise RFCs for significant implementation changes affecting shared cloud systems.
+    produces: [platform-service, operating-model-spec, cross-cutting-concern, composite-pattern]
+    approves: [composite-pattern, platform-service]

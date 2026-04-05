@@ -1,0 +1,260 @@
+---
+# Compatibility file only.
+# Canonical source of truth: doctypes/registry.yaml
+# Document type registry for the Architecture As Code (AaC) framework.
+# Each entry defines a recognised document type, its metadata, and ownership rules.
+
+doctypes:
+
+  - id: platform-policy
+    name: Platform Policy
+    description: >
+      Defines a governing rule, constraint, or standard that applies across
+      the platform. Policies are authoritative and must be complied with by
+      all platform services and workloads within their stated scope.
+    template: templates/platform-policy.md
+    naming_pattern: "tp-{doctype}-{####}-{slug}.md"
+    number_format: "####"   # zero-padded 4-digit integer, e.g. 0001
+    statuses:
+      - Draft
+      - Review
+      - Accepted
+      - Deprecated
+      - Superseded
+    required_fields:
+      - date
+      - status
+      - owner
+      - scope
+    reviewers:
+      - public-cloud-solution-architect
+      - cloud-adoption-solution-architect
+    labels:
+      required:
+        - doctype:platform-policy
+      recommended:
+        - status:{status}
+
+  - id: composition-map
+    name: Composition Map
+    description: >
+      Visualises and documents how platform services, capabilities, and
+      workloads are composed together to deliver a business or technical
+      capability. Acts as the landscape map for a solution or domain.
+    template: templates/composition-map.md
+    naming_pattern: "map-{cloud-scope}-{slug}-{####}.md"
+    statuses:
+      - Draft
+      - Review
+      - Approved
+      - Outdated
+    required_fields:
+      - date
+      - version
+      - owner
+      - scope
+    reviewers:
+      - public-cloud-solution-architect
+      - cloud-adoption-solution-architect
+    labels:
+      required:
+        - doctype:composition-map
+      recommended:
+        - status:{status}
+
+  - id: platform-service
+    name: Platform Service
+    description: >
+      Specifies and documents a fully-managed shared service offered by the
+      platform team. Defines the service contract, APIs, SLOs, onboarding
+      guide, and operational responsibilities.
+    template: templates/platform-service.md
+    naming_pattern: "tp-{cloud-scope}-psvc-{####}-{slug}.md"
+    statuses:
+      - Draft
+      - Review
+      - Approved
+      - Deprecated
+    required_fields:
+      - date
+      - version
+      - service_name
+      - owner
+    reviewers:
+      - engineering-platform-engineer
+      - public-cloud-platform-engineer
+    labels:
+      required:
+        - doctype:platform-service
+      recommended:
+        - status:{status}
+
+  - id: enterprise-service-design
+    name: Enterprise Service Design
+    description: >
+      Specifies an enterprise service design that platform workloads depend on
+      but do not own. Documents ownership boundaries, service contracts,
+      and integration considerations for externally-owned enterprise services
+      such as Public Cloud managed services.
+    template: templates/enterprise-service-design.md
+    naming_pattern: "tp-esvc-{version}-{slug}.md"
+    statuses:
+      - Draft
+      - Review
+      - Approved
+      - Deprecated
+    required_fields:
+      - date
+      - status
+      - owner
+      - dependency_owner
+      - version
+    reviewers:
+      - public-cloud-platform-engineer
+      - public-cloud-solution-architect
+    labels:
+      required:
+        - doctype:enterprise-service-design
+      recommended:
+        - status:{status}
+
+  - id: pattern-overview
+    name: Pattern Overview
+    description: >
+      Provides a concise overview of a reusable architecture or delivery
+      pattern, including intent, adoption guidance, and key trade-offs before
+      deeper implementation-level design artifacts are created.
+    template: templates/pattern-overview.md
+    naming_pattern: "po-{slug}.md"
+    statuses:
+      - Draft
+      - Review
+      - Accepted
+      - Deprecated
+    required_fields:
+      - date
+      - status
+      - owner
+      - scope
+      - version
+    reviewers:
+      - public-cloud-business-cloud-solution-architect
+      - cloud-adoption-solution-architect
+      - public-cloud-solution-architect
+      - public-cloud-business-cloud-engineer
+    labels:
+      required:
+        - doctype:pattern-overview
+      recommended:
+        - status:{status}
+
+  - id: engineering-specification
+    name: Engineering Specification
+    description: >
+      Engineering output document used by implementation teams to define
+      golden path boundaries, interface contracts, sentinel guardrails,
+      cloud resource selections, label standards, and architecture decision
+      references.
+    template: templates/engineering-specification.md
+    naming_pattern: "tp-{cloud-scope}-es-{slug}-{####}.md"
+    statuses:
+      - Draft
+      - Review
+      - Approved
+      - Deprecated
+    required_fields:
+      - date
+      - status
+      - owner
+      - scope
+      - version
+      - audience
+    reviewers:
+      - public-cloud-platform-engineer
+      - public-cloud-business-cloud-engineer
+      - engineering-platform-engineer
+    labels:
+      required:
+        - doctype:engineering-specification
+      recommended:
+        - status:{status}
+
+  - id: composite-pattern
+    name: Composite Pattern
+    description: >
+      Documents a reusable multi-service or multi-layer design pattern
+      validated for use on the platform. Combines platform services and
+      capabilities into a proven, repeatable solution blueprint.
+    template: templates/composite-pattern.md
+    naming_pattern: "tp-{cloud-scope}-comp-{####}-{slug}.md"
+    number_format: "####"
+    statuses:
+      - Draft
+      - Review
+      - Accepted
+      - Deprecated
+    required_fields:
+      - date
+      - status
+      - author
+    reviewers:
+      - public-cloud-solution-architect
+      - cloud-adoption-solution-architect
+    labels:
+      required:
+        - doctype:composite-pattern
+      recommended:
+        - status:{status}
+
+  - id: cross-cutting-concern
+    name: Cross Cutting Concern
+    description: >
+      Documents a concern that cuts across all platform services and
+      workloads — such as observability, security, resilience, compliance,
+      or cost governance — and defines how it is addressed consistently.
+    template: templates/cross-cutting-concern.md
+    naming_pattern: "tp-xcut-{####}-{slug}.md"
+    statuses:
+      - Draft
+      - Review
+      - Accepted
+      - Deprecated
+    required_fields:
+      - date
+      - owner
+      - domains_affected
+    reviewers:
+      - public-cloud-platform-engineer
+      - engineering-platform-engineer
+    labels:
+      required:
+        - doctype:cross-cutting-concern
+      recommended:
+        - status:{status}
+
+  - id: operating-model-spec
+    name: Operating Model Specification
+    description: >
+      Specifies how a platform service, capability, or domain is operated
+      day-to-day. Covers responsibilities, escalation paths, SLO targets,
+      on-call arrangements, and change processes.
+    template: templates/operating-model-spec.md
+    naming_pattern: "oms-{cloud-scope}-{version}-{####}-{slug}.md"
+    statuses:
+      - Draft
+      - Review
+      - Approved
+      - Deprecated
+    required_fields:
+      - date
+      - version
+      - owner
+      - scope
+    reviewers:
+      - engineering-platform-engineer
+      - public-cloud-platform-engineer
+    labels:
+      required:
+        - doctype:operating-model-spec
+      recommended:
+        - status:{status}

@@ -1,0 +1,121 @@
+---
+# Label taxonomy
+schema_version: "1.0.0"
+description: >
+  Structured taxonomy of labels for categorising, triaging, and filtering
+  AAC framework artifacts, issues, and pull requests.
+  Each label has a unique name, a colour (hex color code without the # prefix), and a description.
+
+categories:
+  status:
+    description: Lifecycle state of a document or issue.
+    labels:
+      - name: "status: draft"
+        color: "ededed"
+        description: Work in progress — not ready for review.
+      - name: "status: review"
+        color: "5319e7"
+        description: Ready for formal review by designated reviewers.
+      - name: "status: open"
+        color: "0075ca"
+        description: Ready for community review and comment.
+      - name: "status: proposed"
+        color: "cfd3d7"
+        description: Proposal submitted, awaiting decision.
+      - name: "status: approved"
+        color: "0e8a16"
+        description: Approved for use and implementation.
+      - name: "status: accepted"
+        color: "0e8a16"
+        description: Proposal accepted and ready for implementation.
+      - name: "status: rejected"
+        color: "d73a4a"
+        description: Proposal rejected; see document for rationale.
+      - name: "status: deprecated"
+        color: "e4e669"
+        description: No longer recommended; superseded by a newer document.
+      - name: "status: superseded"
+        color: "e4e669"
+        description: Replaced by a newer document (see supersedes field).
+      - name: "status: outdated"
+        color: "e4e669"
+        description: Still available for reference but no longer current.
+      - name: "status: withdrawn"
+        color: "e4e669"
+        description: Proposal withdrawn by the author.
+      - name: "status: closed"
+        color: "6e7781"
+        description: Resolved or completed; no further action required.
+
+  category:
+    description: Domain or type of artifact.
+    labels:
+      - name: "category: architecture"
+        color: "1d76db"
+        description: Architecture decisions, context, and design documents.
+      - name: "category: proposal"
+        color: "0052cc"
+        description: Requests for Comments and feature proposals.
+      - name: "category: operations"
+        color: "e99695"
+        description: Runbooks, operational procedures, and infrastructure docs.
+      - name: "category: incident"
+        color: "d93f0b"
+        description: Incident reports and post-mortems.
+      - name: "category: design"
+        color: "bfd4f2"
+        description: Component designs and technical specifications.
+      - name: "category: governance"
+        color: "5319e7"
+        description: Framework rules, naming conventions, and label taxonomy.
+
+  priority:
+    description: Urgency and importance of the work item.
+    labels:
+      - name: "priority: critical"
+        color: "d73a4a"
+        description: Must be resolved immediately; blocks other work.
+      - name: "priority: high"
+        color: "e4313b"
+        description: Should be resolved in the current sprint or iteration.
+      - name: "priority: medium"
+        color: "fbca04"
+        description: Should be resolved in the next one or two iterations.
+      - name: "priority: low"
+        color: "0075ca"
+        description: Nice to have; schedule when capacity allows.
+
+  environment:
+    description: Target deployment environment.
+    labels:
+      - name: "env: production"
+        color: "d73a4a"
+        description: Applies to or affects the production environment.
+      - name: "env: staging"
+        color: "fbca04"
+        description: Applies to or affects the staging environment.
+      - name: "env: development"
+        color: "0e8a16"
+        description: Applies to or affects development environments.
+      - name: "env: all"
+        color: "e4e669"
+        description: Applies to all environments equally.
+
+  type:
+    description: Nature of the change or work item.
+    labels:
+      - name: "type: bug"
+        color: "d73a4a"
+        description: Something is broken or incorrect.
+      - name: "type: enhancement"
+        color: "a2eeef"
+        description: New feature or improvement.
+      - name: "type: documentation"
+        color: "0075ca"
+        description: Documentation additions or corrections.
+      - name: "type: maintenance"
+        color: "e4e669"
+        description: Routine maintenance, dependency updates, refactoring.
+      - name: "type: security"
+        color: "d93f0b"
+        description: Security-related change or vulnerability fix.

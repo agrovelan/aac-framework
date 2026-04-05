@@ -1,0 +1,80 @@
+---
+# raci/ — configuration
+name: raci
+description: >
+  RACI (Responsible, Accountable, Consulted, Informed) matrices for the
+  key activities within the AAC framework lifecycle.
+
+# RACI key
+raci_values:
+  R: Responsible    # Does the work
+  A: Accountable    # Owns the outcome; the one who is answerable
+  C: Consulted      # Provides input before work is done; two-way communication
+  I: Informed       # Notified of progress/outcome; one-way communication
+
+activities:
+  - id: create-platform-policy
+    name: Create Platform Policy
+    personas:
+      public-cloud-solution-architect: A
+      cloud-adoption-solution-architect: R
+      public-cloud-business-cloud-solution-architect: C
+      public-cloud-platform-engineer: C
+      engineering-platform-engineer: C
+      public-cloud-software-engineer: I
+      public-cloud-business-cloud-engineer: I
+
+  - id: create-composition-map
+    name: Create Composition Map
+    personas:
+      public-cloud-solution-architect: A
+      cloud-adoption-solution-architect: R
+      public-cloud-business-cloud-solution-architect: C
+      public-cloud-platform-engineer: C
+      engineering-platform-engineer: C
+      public-cloud-software-engineer: C
+      public-cloud-business-cloud-engineer: I
+
+  - id: create-platform-service
+    name: Create Platform Service Specification
+    personas:
+      engineering-platform-engineer: A
+      public-cloud-platform-engineer: R
+      public-cloud-software-engineer: C
+      cloud-adoption-solution-architect: C
+      public-cloud-solution-architect: I
+      public-cloud-business-cloud-solution-architect: I
+      public-cloud-business-cloud-engineer: I
+
+  - id: create-composite-pattern
+    name: Create Composite Pattern
+    personas:
+      public-cloud-solution-architect: A
+      cloud-adoption-solution-architect: R
+      engineering-platform-engineer: C
+      public-cloud-platform-engineer: C
+      public-cloud-software-engineer: C
+      public-cloud-business-cloud-solution-architect: I
+      public-cloud-business-cloud-engineer: I
+
+  - id: create-cross-cutting-concern
+    name: Create Cross Cutting Concern Document
+    personas:
+      engineering-platform-engineer: A
+      public-cloud-platform-engineer: R
+      public-cloud-solution-architect: C
+      public-cloud-software-engineer: C
+      public-cloud-business-cloud-solution-architect: C
+      cloud-adoption-solution-architect: C
+      public-cloud-business-cloud-engineer: I
+
+  - id: create-operating-model-spec
+    name: Create Operating Model Specification
+    personas:
+      engineering-platform-engineer: A
+      public-cloud-platform-engineer: R
+      public-cloud-software-engineer: C
+      public-cloud-solution-architect: C
+      cloud-adoption-solution-architect: I
+      public-cloud-business-cloud-solution-architect: I
+      public-cloud-business-cloud-engineer: I

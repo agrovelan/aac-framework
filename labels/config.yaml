@@ -1,0 +1,9 @@
+---
+# labels/ — configuration
+name: labels
+description: >
+  Configuration for the label taxonomy applied to framework artifacts.
+  Labels are used to categorise, triage, and filter documents and issues.
+
+taxonomy_file: taxonomy.yaml
+schema_version: "1.0.0"

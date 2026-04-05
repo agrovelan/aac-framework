@@ -1,0 +1,50 @@
+id: public-cloud-platform-engineer
+name: Public Cloud Platform Engineer
+aliases:
+  - Cloud Platform Engineer
+  - PCPE
+
+description: >
+  Designs, builds, and operates the foundational public-cloud infrastructure
+  that delivery teams run their workloads on. Responsible for cloud landing
+  zones, infrastructure as code, cloud-native CI/CD toolchains, and the
+  observability stack. Partners with architects and engineering teams to
+  embed operational best practices into cloud-hosted services.
+
+responsibilities:
+  - Design and maintain cloud landing zones, account vending, and network topology.
+  - Implement and manage infrastructure as code (Terraform, Bicep, CDK).
+  - Build and operate cloud-native CI/CD pipelines and deployment toolchains.
+  - Define and enforce cloud operational standards (SLIs, SLOs, alerting, tagging).
+  - Author and maintain Runbooks for platform-level cloud operations.
+  - Lead incident response for cloud infrastructure and platform incidents.
+  - Contribute to Post-Mortem write-ups and drive follow-up action items.
+  - Review Component Designs for cloud-readiness and operational fitness.
+
+skills:
+  - Infrastructure as Code (Terraform, Bicep, Pulumi, AWS CDK)
+  - Public cloud networking (VPC, VNet, subnets, firewalls, transit gateways)
+  - Kubernetes and cloud-managed container services (EKS, AKS, GKE)
+  - Observability tooling (CloudWatch, Azure Monitor, Prometheus, OpenTelemetry)
+  - CI/CD platforms (GitHub Actions, Azure DevOps, ArgoCD)
+  - Cloud security posture management (SCPs, Azure Policy, Org Policy)
+  - FinOps — resource tagging, rightsizing, and cost alerting
+
+typical_docs_authored:
+  - operating-model-spec
+  - cross-cutting-concern
+  - platform-service
+  - platform-policy
+
+typical_docs_reviewed:
+  - platform-service
+  - cross-cutting-concern
+  - composite-pattern
+  - operating-model-spec
+
+raci_roles:
+  new_system_design: Consulted
+  technology_selection: Consulted
+  security_review: Consulted
+  deployment_process: Responsible
+  incident_response: Responsible

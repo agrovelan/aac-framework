@@ -1,0 +1,155 @@
+---
+# Label taxonomy for the Architecture As Code (AaC) framework.
+# Labels follow the pattern {category}:{value}.
+# Apply labels to documents, issues, and pull requests to make them
+# filterable and machine-processable.
+
+version: "1.0"
+
+categories:
+
+  doctype:
+    description: "Identifies the document type. Exactly one doctype label MUST be applied to every document."
+    labels:
+      - value: platform-policy
+        description: "Platform Policy (PLCY)"
+        color: "0075ca"
+
+      - value: composition-map
+        description: "Composition Map (MAP)"
+        color: "e4e669"
+
+      - value: platform-service
+        description: "Platform Service Specification (PSVC)"
+        color: "d93f0b"
+
+      - value: composite-pattern
+        description: "Composite Pattern (CMP)"
+        color: "0e8a16"
+
+      - value: cross-cutting-concern
+        description: "Cross Cutting Concern (XCUT)"
+        color: "5319e7"
+
+      - value: operating-model-spec
+        description: "Operating Model Specification (OMS)"
+        color: "b60205"
+
+      - value: pattern-overview
+        description: "Pattern Overview (PO)"
+        color: "1d76db"
+
+      - value: engineering-specification
+        description: "Engineering Specification (ENGS)"
+        color: "0052cc"
+
+  status:
+    description: "Tracks the lifecycle stage of a document. Exactly one status label SHOULD be applied."
+    labels:
+      - value: draft
+        description: "Work in progress; not ready for review."
+        color: "ededed"
+
+      - value: review
+        description: "Ready for and actively seeking review."
+        color: "fbca04"
+
+      - value: accepted
+        description: "Decision or proposal has been accepted."
+        color: "0e8a16"
+
+      - value: rejected
+        description: "Proposal was reviewed and rejected."
+        color: "b60205"
+
+      - value: deprecated
+        description: "Document is no longer current but kept for historical reference."
+        color: "e4e669"
+
+      - value: superseded
+        description: "Document has been replaced by a newer document."
+        color: "bfd4f2"
+
+      - value: published
+        description: "Operating Model Specification or Platform Service is finalised and published."
+        color: "0075ca"
+
+  priority:
+    description: "Indicates urgency or importance of the document or associated action items."
+    labels:
+      - value: critical
+        description: "Requires immediate attention."
+        color: "b60205"
+
+      - value: high
+        description: "Should be addressed in the current sprint or milestone."
+        color: "d93f0b"
+
+      - value: medium
+        description: "Should be addressed in the next sprint or milestone."
+        color: "fbca04"
+
+      - value: low
+        description: "Can be addressed when capacity allows."
+        color: "0e8a16"
+
+  severity:
+    description: "Incident severity, applied to Cross Cutting Concern and Operating Model Specification documents."
+    labels:
+      - value: sev-1
+        description: "Critical production incident; complete or near-complete service loss."
+        color: "b60205"
+
+      - value: sev-2
+        description: "Major production incident; significant feature degradation."
+        color: "d93f0b"
+
+      - value: sev-3
+        description: "Minor production incident; limited customer impact."
+        color: "fbca04"
+
+  environment:
+    description: "Identifies the deployment environment relevant to the document."
+    labels:
+      - value: production
+        description: "Relates to the production environment."
+        color: "b60205"
+
+      - value: staging
+        description: "Relates to the staging / pre-production environment."
+        color: "fbca04"
+
+      - value: development
+        description: "Relates to the development environment."
+        color: "0e8a16"
+
+  area:
+    description: "Cross-cutting concern or technical domain the document addresses."
+    labels:
+      - value: security
+        description: "Security-related design or decision."
+        color: "e11d48"
+
+      - value: scalability
+        description: "Scalability or performance concern."
+        color: "0284c7"
+
+      - value: reliability
+        description: "Reliability, availability, or resilience concern."
+        color: "7c3aed"
+
+      - value: data
+        description: "Data modelling, storage, or processing."
+        color: "92400e"
+
+      - value: api
+        description: "API design or API-breaking change."
+        color: "065f46"
+
+      - value: infrastructure
+        description: "Infrastructure or platform change."
+        color: "374151"
+
+      - value: cost
+        description: "Cost optimisation concern."
+        color: "854d0e"

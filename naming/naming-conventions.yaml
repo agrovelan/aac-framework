@@ -1,0 +1,171 @@
+---
+# Naming conventions for the Architecture As Code (AaC) framework.
+# These rules apply to files, directories, components, and other identifiers
+# produced or consumed by the framework.
+
+version: "1.1"
+
+general:
+  description: >
+    All names MUST use lowercase letters, digits, and hyphens only.
+    Spaces and underscores are not permitted. Names should be descriptive
+    and as short as clarity allows.
+  rules:
+    - id: gen-1
+      rule: "Use lowercase letters, digits, and hyphens only."
+      example_valid: "user-authentication-service"
+      example_invalid: "UserAuthenticationService, user_authentication_service"
+
+    - id: gen-2
+      rule: "Do not start or end a name with a hyphen."
+      example_valid: "api-gateway"
+      example_invalid: "-api-gateway, api-gateway-"
+
+    - id: gen-3
+      rule: "Prefer full words over abbreviations unless the abbreviation is widely understood (e.g. api, ui, id, cli)."
+      example_valid: "authentication-service, api-gateway"
+      example_invalid: "auth-svc, apigw"
+
+    - id: gen-4
+      rule: "Use approved framework doctype prefixes for framework documents."
+      example_valid: "plcy-0001-network-segmentation-policy.md, cmp-0001-event-driven-data-sync.md"
+      example_invalid: "policy-0001-network-segmentation-policy.md, pattern-0001-event-driven-data-sync.md"
+    - id: gen-5
+      rule: "Use of the term cloud scope refers to either GCP for reference to Google Cloud Platform or AZR for reference to Microsoft Azure."
+      example_valid: "tp-azr-plcy-0001-network-segmentation-policy.md, tp-gcp-cmp-0001-event-driven-data-sync.md"
+      example_invalid: "tp-aws-plcy-0001-network-segmentation-policy.md, tp-azure-cmp-0001-event-driven-data-sync.md"
+
+files:
+  description: >
+    Rules for naming documentation files within the AaC framework.
+
+  patterns:
+
+
+    platform-policy:
+      rule: "Prefix with plcy-, then a 4-digit zero-padded sequence number, and a descriptive slug."
+      pattern: "plcy-{NNNN}-{slug}.md"
+      description: "Platform Policy documents use the plcy- prefix, a zero-padded sequence number, and a descriptive slug."
+      examples:
+        - "plcy-0001-network-segmentation-policy.md"
+        - "plcy-0002-data-classification-policy.md"
+
+    composition-map:
+      pattern: "map-{slug}.md"
+      description: "Composition Map documents use the map- prefix and a descriptive slug."
+      examples:
+        - "map-data-ingestion-pipeline.md"
+        - "map-payments-domain-services.md"
+
+    platform-service:
+      pattern: "psvc-{slug}.md"
+      description: "Platform Service documents use the psvc- prefix and a descriptive slug."
+      examples:
+        - "psvc-secret-management.md"
+        - "psvc-observability-foundation.md"
+
+    enterprise-service-design:
+      pattern: "esvc-{slug}.md"
+      description: "Enterprise Service Design documents use the esvc- prefix and a descriptive slug."
+      examples:
+        - "esvc-public-cloud-identity-provider.md"
+        - "esvc-enterprise-api-gateway.md"
+
+    pattern-overview:
+      pattern: "po-{slug}.md"
+      description: "Pattern Overview documents use the po- prefix and a descriptive slug."
+      examples:
+        - "po-reference-integration-architecture.md"
+        - "po-event-driven-domain-decomposition.md"
+
+    engineering-specification:
+      pattern:  "tp-{cloud-scope}-engs-{####}-{slug}.md"
+      description: "Engineering Specification documents use the tp- prefix with cloud scope, engs doctype, a zero-padded sequence number, and a descriptive slug."
+      examples:
+        - "tp-azr-engs-0001-identity-federation-golden-path.md"
+        - "tp-gcp-engs-0002-secure-data-storage.md"
+
+    composite-pattern:
+      pattern: "cmp-{NNNN}-{slug}.md"
+      description: "Composite Pattern documents use the cmp- prefix, a zero-padded sequence number, and a descriptive slug."
+      examples:
+        - "cmp-0001-event-driven-data-sync.md"
+        - "cmp-0010-secure-multi-region-api.md"
+
+    cross-cutting-concern:
+      pattern: "xcut-{slug}.md"
+      description: "Cross Cutting Concern documents use the xcut- prefix and a descriptive slug."
+      examples:
+        - "xcut-observability-standards.md"
+        - "xcut-cost-governance-baseline.md"
+
+    operating-model-spec:
+      pattern: "oms-{slug}.md"
+      description: "Operating Model Specification documents use the oms- prefix and a descriptive slug."
+      examples:
+        - "oms-incident-management.md"
+        - "oms-change-management.md"
+
+    raci:
+      pattern: "{activity-slug}.yaml"
+      description: "RACI matrices are named after the activity they cover."
+      examples:
+        - "new-system-design.yaml"
+        - "technology-selection.yaml"
+
+directories:
+  description: >
+    Top-level framework directories follow the same lowercase-hyphen convention.
+  standard_directories:
+    - name: templates
+      purpose: "Document templates."
+    - name: personas
+      purpose: "Persona definitions."
+    - name: raci
+      purpose: "RACI matrices."
+    - name: doctypes
+      purpose: "Document-type registry."
+    - name: naming
+      purpose: "Naming conventions (this directory)."
+    - name: labels
+      purpose: "Label taxonomy."
+    - name: docs
+      purpose: "Project-specific architecture documents (created by consumers)."
+
+components:
+  description: >
+    Rules for naming software components, services, and repositories.
+  rules:
+    - id: comp-1
+      rule: "Component names MUST be lowercase, hyphen-separated noun phrases."
+      example_valid: "order-service, notification-worker, api-gateway"
+      example_invalid: "OrderService, notification_worker, APIGateway"
+
+    - id: comp-2
+      rule: "Service names SHOULD include a functional noun suffix: -service, -worker, -gateway, -api, -ui, -cli."
+      example_valid: "checkout-service, email-worker, admin-api"
+      example_invalid: "checkout, emailer, admin"
+
+    - id: comp-3
+      rule: "Repository names SHOULD match the primary component they contain."
+      example_valid: "order-service (repository for the Order Service)"
+      example_invalid: "orders, OrderService, svc-orders"
+
+identifiers:
+  description: >
+    Rules for machine-readable identifiers used in YAML and metadata.
+  rules:
+    - id: id-1
+      rule: "IDs MUST be lowercase, hyphen-separated, and globally unique within their namespace."
+      example_valid: "solution-architect, composite-pattern"
+      example_invalid: "SolutionArchitect, composite_pattern"
+
+    - id: id-2
+      rule: "DocType IDs MUST match the id field in doctypes/registry.yaml."
+      example_valid: "platform-policy, composition-map, operating-model-spec"
+      example_invalid: "PlatformPolicy, platform_policy, operating_model_spec"
+
+    - id: id-3
+      rule: "Label keys MUST follow the pattern {category}:{value} using the taxonomy in labels/taxonomy.yaml."
+      example_valid: "doctype:platform-policy, status:draft, priority:high"
+      example_invalid: "doctype-platform-policy, Draft, High"

@@ -1,0 +1,48 @@
+id: public-cloud-solution-architect
+name: Public Cloud Solution Architect
+aliases:
+  - Cloud Architect
+  - PCSA
+
+description: >
+  Owns the end-to-end technical vision for public-cloud-hosted solutions.
+  Defines cloud-native architectural patterns, governs infrastructure design
+  decisions, and ensures solutions meet quality attributes such as resilience,
+  scalability, security, and cost-efficiency across AWS, Azure, and GCP.
+
+responsibilities:
+  - Produce and maintain System Context and Component Design documents for cloud solutions.
+  - Author and approve Architecture Decision Records (ADRs) covering cloud design choices.
+  - Define cloud architecture guardrails, reference architectures, and landing-zone patterns.
+  - Review and approve RFCs that introduce significant changes to cloud topology.
+  - Guide delivery teams on cloud-native patterns (serverless, containers, managed services).
+  - Represent architecture concerns in RACI processes for new systems and major changes.
+  - Ensure solutions align with security, compliance, and cost-governance standards.
+
+skills:
+  - Cloud-native architecture on AWS, Azure, and/or GCP
+  - Distributed systems design and microservices patterns
+  - Security architecture, zero-trust networking, and threat modelling
+  - FinOps and cloud cost-optimisation strategies
+  - Communication of complex technical concepts to non-technical stakeholders
+  - Trade-off analysis and architecture decision facilitation
+
+typical_docs_authored:
+  - platform-policy
+  - composition-map
+  - composite-pattern
+  - operating-model-spec
+
+typical_docs_reviewed:
+  - platform-policy
+  - composition-map
+  - composite-pattern
+  - cross-cutting-concern
+  - operating-model-spec
+
+raci_roles:
+  new_system_design: Accountable
+  technology_selection: Accountable
+  security_review: Consulted
+  deployment_process: Consulted
+  incident_response: Consulted

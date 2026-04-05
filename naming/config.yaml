@@ -1,0 +1,9 @@
+---
+# naming/ — configuration
+name: naming
+description: >
+  Configuration for naming conventions applied to files, directories,
+  branches, labels, and identifiers within the AAC framework.
+
+rules_file: rules.yaml
+schema_version: "1.0.0"
